@@ -29,3 +29,6 @@ setup:
 
 cleanup:
 	fusermount -u $(mountpoint)
+	rm -r $(mountpoint)
+	rm imsfs
+
