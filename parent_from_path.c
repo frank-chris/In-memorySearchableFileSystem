@@ -15,16 +15,31 @@
 // } imsfs_tree_node;
 
 
-imsfs_tree_node *add_node(const char *path_to_add, char *name, bool file){
-    //file == 1 if file, file == 0 if directory
+char *parent_from_path(const char *path){
+    if(strcmp(path, "/"))
+        return path; // Root is the special case
 
-    imsfs_tree_node *tmp_node = get_node(path_to_add);
-    // We will add the file/directory on this node
-    
-    if(!tmp_node){
-        error_msg("NULL returned by get_node()", "Invalid Path");
+    int pathlen = strlen(path);
+    bool found = false;
+    int i;
+    for(i = pathlen - 1; i >= 0; i--){
+        if(path[i] == '/'){
+            found = true;
+            break;
+        }
     }
-
-
+    if(!found){
+        error_msg("name_from_path()", "Invalid path");
+        return NULL;
+    }
+    
+    int dir_len = i;
+    char *dir = (char *)malloc(sizeof(char) * dir_len + 1);
+    int j = 0;
+    while(j < dir_len){
+        dir[j] = path[j];
+        j++;
+    }
+    return dir;
 }
 

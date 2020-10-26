@@ -15,23 +15,12 @@
 // } imsfs_tree_node;
 
 
-void initialise_imsfs(){
-
-    root = (imsfs_tree_node *)malloc(sizeof(imsfs_tree_node) + 1); // Malloc the root. Now we can enter data.
-    // printf("Root node at location %p\n", root);
-
-    root -> isfile = 0;
-
-    root -> name = NULL; // Root has no file name or directory name
-
-    root -> path[0] = (char *) malloc(sizeof(char) + 1);
-    strcpy(root -> path[0], "/");
-
-    root -> parent = NULL;
-    root -> children = NULL;
-    root -> num_children = 0;
-
-    root -> data = NULL;
-    root ->data_len = 0;
+imsfs_tree_node *parent_node_from_path(const char *path){
+    char *parent_path = parent_from_path(path);
+    if(!parent_path){
+        error_msg("parent_from_path()", "Invalid Path");
+        return NULL;
+    }
+    return get_node(parent_path);
 }
 

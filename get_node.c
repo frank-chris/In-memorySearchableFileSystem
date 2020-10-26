@@ -49,9 +49,9 @@ imsfs_tree_node *get_node(const char *path){
             subdir_len++;
         if(subdir_len <= 0){
             error_msg("Node not found", "Invalid path");
-            return 0;
+            return NULL;
         }
-        sub_dir = (char *)malloc(sizeof(char) * pathlen);
+        sub_dir = (char *)malloc(sizeof(char) * pathlen + 1);
         for(int i = curptr; i < nxtptr; i++){
             sub_dir[i - curptr] = path[i];
         }
@@ -79,7 +79,7 @@ imsfs_tree_node *get_node(const char *path){
 
     if(!resolved){
             error_msg("Node not found", "Invalid path");
-            return 0;
+            return NULL;
     }
 
     return cur;

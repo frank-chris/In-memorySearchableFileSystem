@@ -46,5 +46,11 @@ fs_tree_node *cur_node;
 // Initialise
 void initialise_imsfs();
 
-
+void print_node_data(imsfs_tree_node *node);
+imsfs_tree_node *get_node(char *path);
+imsfs *add_file_node(char *parent_path, char *name);
+imsfs *add_dir_node(char *parent_path, char *name);
+char *name_from_path(char *path);
+char *parent_from_path(char *path);
+imsfs_tree_node *parent_node_from_path(char *path);
 #endif
