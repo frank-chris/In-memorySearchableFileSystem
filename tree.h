@@ -13,24 +13,32 @@
 #include <errno.h>
 #include <stdbool.h>
 
-
-// in bits = 8 + (256*8) + 32 + 32 + 32 + 32 + 8 + 64 + (16*8) + (16*8) + (16*8) + 64 + 64 = 2768 = 346 bytes
+#define MAX_NAME_SIZE 256
+#define MAX_PATH_DEPTH 20
 // size in bytes = 1 + 256 + 8 + 8 + 8 + 4 + 8 + 8 = 301
 #define NODE_SIZE 301
 
 
+
 typedef struct imsfs_tree_node {
     bool isfile;                        
-    char name[256];                         //name of node, file/directory
-    char *path;                     //full path of node
+    char name[MAX_NAME_SIZE];                         //name of node, file/directory
+    char *path[MAX_PATH_DEPTH];                     //full path of node, stored as an array of directories
     
     struct imsfs_tree_node *parent;        //link to parent
     struct imsfs_tree_node **children;      //links to children
     int num_children;                       //number of children
 
-    char **data;						//data for read and write
+    char *data;						//data for read and write
     long int data_len;
 
 } imsfs_tree_node;
+
+// Root
+fs_tree_node *root;
+
+// Initialise
+void initialise_imsfs();
+
 
 #endif
