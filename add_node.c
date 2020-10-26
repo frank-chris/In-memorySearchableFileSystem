@@ -15,23 +15,16 @@
 // } imsfs_tree_node;
 
 
-void initialise_imsfs(){
+imsfs_tree_node *add_node(const char *path_to_add, char *name, bool file){
+    //file == 1 if file, file == 0 if directory
 
-    root = (imsfs_tree_node *)malloc(sizeof(imsfs_tree_node)); // Malloc the root. Now we can enter data.
-    // printf("Root node at location %p\n", root);
+    imsfs_tree_node *tmp_node = get_node(path_to_add);
+    // We will add the file/directory on this node
+    
+    if(!tmp_node){
+        error_msg("NULL returned by get_node()", "Invalid Path");
+    }
 
-    root -> isfile = 0;
 
-    root -> name = NULL; // Root has no file name or directory name
-
-    root -> path[0] = (char *) malloc(sizeof(char));
-    strcpy(root -> path[0], "/");
-
-    root -> parent = NULL;
-    root -> children = NULL;
-    root -> num_children = 0;
-
-    root -> data = NULL;
-    root ->data_len = 0;
 }
 
