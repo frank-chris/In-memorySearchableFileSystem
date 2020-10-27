@@ -15,14 +15,14 @@
 // } imsfs_tree_node;
 
 
-imsfs_tree_node *add_file_node(const char *parent_path, const char *name){
+imsfs_tree_node *add_dir_node(const char *parent_path, const char *name){
 
     imsfs_tree_node *parent_node = get_node(parent_path);
     if(!parent_node){
         error_msg("NULL returned by get_node()", "Invalid Path");
         return NULL;
     }
-    // We will add the file/directory on this node
+    // We will add the directory on this node
 
     int pathlen = strlen(parent_path) + strlen(name) + 2;
     char *fullpath = (char *)malloc(sizeof(char) * pathlen + 1);
@@ -43,7 +43,7 @@ imsfs_tree_node *add_file_node(const char *parent_path, const char *name){
     parent_node -> children = realloc(parent_node -> children, sizeof(imsfs_tree_node *) * parent_node -> num_children);
     parent_node -> children[parent_node -> num_children - 1] = new_node;
 
-    new_node -> isfile = 1;
+    new_node -> isfile = 0;
     new_node -> name = (char *)malloc(strlen(name) + 1);
     strcpy(new_node -> name, name);
     new_node -> path = (char *)malloc(pathlen);

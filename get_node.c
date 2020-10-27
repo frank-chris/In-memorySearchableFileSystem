@@ -2,7 +2,7 @@
 
 // typedef struct imsfs_tree_node {
 //     bool isfile;                        
-//     char name[MAX_NAME_SIZE];                         //name of node
+//     char *name;                         //name of node
 //     char *path;                     //full path of node, stored as an array of directories
 //     
 //     struct imsfs_tree_node *parent;        //link to parent
@@ -10,7 +10,7 @@
 //     int num_children;                       //number of children
 // 
 //     char *data;						//data for read and write
-//     long int data_len;
+//     unsigned long int data_len;
 // 
 // } imsfs_tree_node;
 
@@ -27,7 +27,7 @@ imsfs_tree_node *get_node(const char *path){
     imsfs_tree_node *cur = root;
 
     if(strcmp(path, "/") == 0){
-        return curr;
+        return cur;
     }
 
     int curptr = 0, nxtptr = 1;
@@ -57,11 +57,11 @@ imsfs_tree_node *get_node(const char *path){
         }
 
         for(int i = 0; i < (cur -> num_children); i++){
-            if(!(cur ->children[num_children]))
+            if(!(cur -> children[i]))
                 continue;
-            char *tmp_name = (cur -> children[num_children]) -> name;
+            char *tmp_name = (cur -> children[i]) -> name;
             if(strcmp(tmp_name, sub_dir) == 0){
-                cur = cur -> children[num_children];
+                cur = cur -> children[i];
                 found = 1;
                 break;
             }

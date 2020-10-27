@@ -2,7 +2,7 @@
 
 // typedef struct imsfs_tree_node {
 //     bool isfile;                        
-//     char name[MAX_NAME_SIZE];                         //name of node
+//     char *name;                         //name of node
 //     char *path;                     //full path of node, stored as an array of directories
 //     
 //     struct imsfs_tree_node *parent;        //link to parent
@@ -10,7 +10,7 @@
 //     int num_children;                       //number of children
 // 
 //     char *data;						//data for read and write
-//     long int data_len;
+//     unsigned long int data_len;
 // 
 // } imsfs_tree_node;
 
@@ -22,10 +22,11 @@ void initialise_imsfs(){
 
     root -> isfile = 0;
 
-    root -> name = NULL; // Root has no file name or directory name
+    root -> name = (char *) malloc(sizeof(char) + 1);
+    strcpy(root -> name, "/"); // Root is also named '/'
 
-    root -> path[0] = (char *) malloc(sizeof(char) + 1);
-    strcpy(root -> path[0], "/");
+    root -> path = (char *) malloc(sizeof(char) + 1);
+    strcpy(root -> path, "/");
 
     root -> parent = NULL;
     root -> children = NULL;
