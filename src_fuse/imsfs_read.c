@@ -13,6 +13,7 @@
 //data_len -> length of string (excluding NULL character)
 
 int imsfs_read (const char *path, char *buf, size_t size, off_t offset, struct fuse_file_info *fi){
+    printf("READ FILE\n");
     imsfs_tree_node* cur_node = get_node(path);
     if (!cur_node) return -ENOENT;
 

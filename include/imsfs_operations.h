@@ -28,4 +28,11 @@ int imsfs_read (const char *, char *, size_t, off_t, struct fuse_file_info *);
 
 int imsfs_write (const char *, const char *, size_t, off_t, struct fuse_file_info *);
 
+int imsfs_readdir (const char *, void *, fuse_fill_dir_t, off_t, struct fuse_file_info *);
+
+int imsfs_rmdir (const char *);
+
+/** Remove a file */
+int imsfs_unlink (const char *);
+
 #endif

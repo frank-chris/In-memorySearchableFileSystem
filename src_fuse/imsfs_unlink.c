@@ -10,9 +10,7 @@
 #include "tree.h"
 #include "imsfs_operations.h"
 
-
-int imsfs_open (const char *path, struct fuse_file_info *fi){
-    imsfs_tree_node* existing_node = get_node(path);
-    if (!existing_node) return -ENOENT;
+int imsfs_unlink (const char *path){
+    printf("REMOVE FILE\n");
     return 0;
 }

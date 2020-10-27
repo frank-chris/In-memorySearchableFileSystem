@@ -15,7 +15,8 @@ int imsfs_getattr (const char *path, struct stat *s){
     printf("GETATTR\n");
     printf("%s\n",path);
     printf("******************\n");
-    imsfs_tree_node* cur_node=get_node_from_path(path);
+    imsfs_tree_node* cur_node=get_node(path);
+    printf("Got node\n");
     if (!cur_node) return -ENOENT;
     if (cur_node->isfile){
         s->st_nlink=1;
@@ -29,8 +30,9 @@ int imsfs_getattr (const char *path, struct stat *s){
         s->st_nlink=child_dir+2;
         s->st_size=0;
     }
-    s->st_atim.tv_sec=cur_node->last_access_time;
-    s->st_mtim.tv_sec=cur_node->last_modification_time;
+    //s->st_atim.tv_sec=cur_node->last_access_time;
+    //s->st_mtim.tv_sec=cur_node->last_modification_time;
     // s->st_mode
+    printf("Returning from getattr\n");
     return 0;
 }

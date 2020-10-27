@@ -46,8 +46,8 @@ void initialise_imsfs(){
     root -> data = NULL;
     root ->data_len = 0;
 
-    root->last_access_time=time(NULL);
-    root->last_modification_time=time(NULL);
+    //root->last_access_time=time(NULL);
+    //root->last_modification_time=time(NULL);
 }
 
 

@@ -24,9 +24,9 @@ static struct fuse_operations imsfs_operations = {
 	// .chmod	    = imsfs_chmod,
 	// .chown	    = imsfs_chown,
 	// .truncate   = imsfs_truncate,
-	// .open	    = imsfs_open,
-	// .read	    = imsfs_read,
-	// .write	    = imsfs_write,
+	.open	    = imsfs_open,
+	.read	    = imsfs_read,
+	.write	    = imsfs_write,
 	// //.statfs	    = imsfs_statfs,
 	// .flush	    = imsfs_flush,
 	// //.release	= imsfs_release,
@@ -36,7 +36,8 @@ static struct fuse_operations imsfs_operations = {
 	// //.listxattr	= imsfs_listxattr,
 	// //.removexattr = imsfs_removexattr,
 	// //.opendir	= imsfs_opendir,
-	// .readdir	= imsfs_readdir,/*
+	.readdir	= imsfs_readdir,
+	/*
 	// //.releasedir	= imsfs_releasedir,
 	// //.fsyncdir	= imsfs_fsyncdir,
 	// .init	    = imsfs_init,
@@ -57,6 +58,8 @@ static struct fuse_operations imsfs_operations = {
 };
 
 int main(int argc, char **argv) {
-    void initialise_imsfs();
+	printf("Initialising\n");
+    initialise_imsfs();
+	printf("Initialised\n");
     return fuse_main(argc, argv, &imsfs_operations,NULL);
 }
