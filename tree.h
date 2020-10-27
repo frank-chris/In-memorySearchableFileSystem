@@ -53,4 +53,6 @@ imsfs_tree_node *add_dir_node(const char *parent_path, const char *name);
 char *name_from_path(const char *path);
 char *parent_from_path(const char *path);
 imsfs_tree_node *parent_node_from_path(const char *path);
+imsfs_tree_node* get_file_node(const char *path);
+imsfs_tree_node* get_dir_node(const char *path);
 #endif
