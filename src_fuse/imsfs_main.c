@@ -61,5 +61,5 @@ int main(int argc, char **argv) {
 	printf("Initialising\n");
     initialise_imsfs();
 	printf("Initialised\n");
-    return fuse_main(argc, argv, &imsfs_operations,NULL);
+    return fuse_main(argc, argv, &imsfs_operations, NULL);
 }

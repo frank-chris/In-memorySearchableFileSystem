@@ -16,6 +16,7 @@
 
 
 imsfs_tree_node *add_file_node(const char *parent_path, const char *name){
+    printf("call to function: ADD_FILE_NODE, parent_path: %s, child_name: %s\n",parent_path, name);
 
     imsfs_tree_node *parent_node = get_node(parent_path);
     if(!parent_node){
@@ -53,7 +54,10 @@ imsfs_tree_node *add_file_node(const char *parent_path, const char *name){
     new_node -> num_children = 0;
     new_node -> data = NULL;
     new_node -> data_len = 0;
+    root -> permissions = FILE_PERM;
 
+    printf("New file node pointer: %p\n",new_node);
+    printf("Returning from ADD_FILE_NODE\n");
     return new_node;
 }
 

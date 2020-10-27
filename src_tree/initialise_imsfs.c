@@ -34,5 +34,6 @@ void initialise_imsfs(){
 
     root -> data = NULL;
     root ->data_len = 0;
+    root -> permissions = 0777;
 }
 

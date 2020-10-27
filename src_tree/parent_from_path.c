@@ -16,8 +16,10 @@
 
 
 char *parent_from_path(const char *path){
+    printf("call to function: PARENT_FROM_PATH, parent_path: %s\n",path);
+
     char *dir = (char *)malloc(sizeof(char) + 1);
-    if(strcmp(path, "/"))
+    if(!strcmp(path, "/"))
         return dir; // Root is the special case
 
     int pathlen = strlen(path);
@@ -33,14 +35,27 @@ char *parent_from_path(const char *path){
         error_msg("name_from_path()", "Invalid path");
         return NULL;
     }
-    
+
     int dir_len = i;
-    dir = (char *)realloc(dir, sizeof(char) * dir_len + 1);
-    int j = 0;
-    while(j < dir_len){
-        dir[j] = path[j];
-        j++;
+
+    //Special case -> "/file.txt", extracted parent should be "/"
+
+    if (dir_len==0){
+        strcpy(dir,"/");
     }
+    else{
+        dir = (char *)realloc(dir, sizeof(char) * dir_len + 1);
+        int j = 0;
+        while(j < dir_len){
+            dir[j] = path[j];
+            j++;
+        }
+
+        dir[dir_len]='\0';
+    }
+
+    printf("Extracted parent: %s\n",dir);
+    printf("Returning from ADD_FILE_NODE\n");
     return dir;
 }
 

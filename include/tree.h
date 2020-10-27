@@ -15,6 +15,10 @@
 
 #include <fuse.h>
 
+//from ffs.c for testing bug
+#define DIR_PERM (0775) 
+#define FILE_PERM (0664)
+
 #define MAX_NAME_SIZE 256
 #define MAX_PATH_DEPTH 20
 // size in bytes = 1 + 8 + 8 + 8 + 8 + 4 + 8 + 8 = 301
@@ -34,6 +38,7 @@ typedef struct imsfs_tree_node {
 
     char *data;						//data for read and write
     unsigned long int data_len;
+    unsigned int permissions;		        // Permissions
 
 } imsfs_tree_node;
 
