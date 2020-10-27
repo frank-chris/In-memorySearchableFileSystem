@@ -16,7 +16,9 @@
 
 
 char *name_from_path(const char *path){
-    if(strcmp(path, "/"))
+    printf("call to function: NAME_FROM_PATH, parent_path: %s\n",path);
+
+    if(!strcmp(path, "/"))
         return NULL;
 
     int pathlen = strlen(path);
@@ -42,6 +44,11 @@ char *name_from_path(const char *path){
         j++;
         i++;
     }
+
+    name[name_len]='\0';
+    printf("Extracted name: %s\n",name);
+    printf("Returning from ADD_FILE_NODE\n");
+
     return name;
 }
 

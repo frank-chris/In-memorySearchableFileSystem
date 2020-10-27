@@ -53,6 +53,7 @@ imsfs_tree_node *add_dir_node(const char *parent_path, const char *name){
     new_node -> num_children = 0;
     new_node -> data = NULL;
     new_node -> data_len = 0;
+    root -> permissions = DIR_PERM;
 
     return new_node;
 }

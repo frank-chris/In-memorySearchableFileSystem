@@ -39,4 +39,7 @@ void print_node_data(imsfs_tree_node *node){
 
     printf("Size of file in bytes: %ld\n", node -> data_len);
 
+    printf("Permissions of the node: %u\n",node->permissions);
+
+    printf("\n");
 }
