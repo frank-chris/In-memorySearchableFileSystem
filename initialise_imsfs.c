@@ -7,7 +7,7 @@
 //     
 //     struct imsfs_tree_node *parent;        //link to parent
 //     struct imsfs_tree_node **children;      //links to children
-//     int num_children;                       //number of children
+//     int end_of_children;                       //number of children
 // 
 //     char *data;						//data for read and write
 //     unsigned long int data_len;
@@ -16,9 +16,10 @@
 
 
 void initialise_imsfs(){
+    printf("Initialise imsfs\n");
 
     root = (imsfs_tree_node *)malloc(sizeof(imsfs_tree_node) + 1); // Malloc the root. Now we can enter data.
-    // printf("Root node at location %p\n", root);
+    printf("Root node at location %p\n", root);
 
     root -> isfile = 0;
 
@@ -30,9 +31,11 @@ void initialise_imsfs(){
 
     root -> parent = NULL;
     root -> children = NULL;
-    root -> num_children = 0;
+    root -> end_of_children = 0;
+    root -> mex = 0;
 
     root -> data = NULL;
-    root ->data_len = 0;
+    root -> data_len = 0;
+    root -> permissions = 0777;
 }
 

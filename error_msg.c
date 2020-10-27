@@ -6,5 +6,5 @@ void error_msg(const char * msg, const char * reason){
     fputs(": ", stderr);
     fputs(reason, stderr);
     fputs("\n", stderr);
-    exit(1);
+    //exit(1);
 }

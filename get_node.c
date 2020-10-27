@@ -7,7 +7,7 @@
 //     
 //     struct imsfs_tree_node *parent;        //link to parent
 //     struct imsfs_tree_node **children;      //links to children
-//     int num_children;                       //number of children
+//     int end_of_children;                       //number of children
 // 
 //     char *data;						//data for read and write
 //     unsigned long int data_len;
@@ -56,7 +56,7 @@ imsfs_tree_node *get_node(const char *path){
             sub_dir[i - curptr] = path[i];
         }
 
-        for(int i = 0; i < (cur -> num_children); i++){
+        for(int i = 0; i < (cur -> end_of_children); i++){
             if(!(cur -> children[i]))
                 continue;
             char *tmp_name = (cur -> children[i]) -> name;

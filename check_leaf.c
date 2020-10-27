@@ -8,19 +8,31 @@
 //     struct imsfs_tree_node *parent;        //link to parent
 //     struct imsfs_tree_node **children;      //links to children
 //     int end_of_children;                       //number of children
+//     int mex;                                 // lowest unfilled location
 // 
 //     char *data;						//data for read and write
 //     unsigned long int data_len;
+//
+//     unsigned int permissions;        // Permissions
 // 
 // } imsfs_tree_node;
 
 
-imsfs_tree_node *parent_node_from_path(const char *path){
-    char *parent_path = parent_from_path(path);
-    if(!parent_path){
-        error_msg("parent_from_path()", "Invalid Path");
-        return NULL;
+bool check_leaf(imsfs_tree_node *cur){
+    if(!cur){
+        return false;
     }
-    return get_node(parent_path);
+
+    if(cur -> isfile){
+        return true;
+    }
+
+    for(int i = 0; i < (cur -> end_of_children); i++){
+        imsfs_tree_node *child = cur -> children[i];
+        if(child != NULL){
+            return true;
+        }
+    }
+    return false;
 }
 

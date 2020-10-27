@@ -7,7 +7,7 @@
 //     
 //     struct imsfs_tree_node *parent;        //link to parent
 //     struct imsfs_tree_node **children;      //links to children
-//     int num_children;                       //number of children
+//     int end_of_children;                       //number of children
 // 
 //     char *data;						//data for read and write
 //     unsigned long int data_len;

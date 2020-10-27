@@ -7,7 +7,7 @@
 //     
 //     struct imsfs_tree_node *parent;        //link to parent
 //     struct imsfs_tree_node **children;      //links to children
-//     int num_children;                       //number of children
+//     int end_of_children;                       //number of children
 // 
 //     char *data;						//data for read and write
 //     unsigned long int data_len;
@@ -16,8 +16,10 @@
 
 
 char *parent_from_path(const char *path){
+    printf("call to function: PARENT_FROM_PATH, parent_path: %s\n",path);
+
     char *dir = (char *)malloc(sizeof(char) + 1);
-    if(strcmp(path, "/"))
+    if(strcmp(path, "/") == 0)
         return dir; // Root is the special case
 
     int pathlen = strlen(path);
@@ -34,13 +36,25 @@ char *parent_from_path(const char *path){
         return NULL;
     }
     
+    //Special case -> "/file.txt", extracted parent should be "/"
+
     int dir_len = i;
-    dir = (char *)realloc(dir, sizeof(char) * dir_len + 1);
-    int j = 0;
-    while(j < dir_len){
-        dir[j] = path[j];
-        j++;
+    if (dir_len==0){
+        strcpy(dir,"/");
     }
+    else{
+        dir = (char *)realloc(dir, sizeof(char) * dir_len + 1);
+        int j = 0;
+        while(j < dir_len){
+            dir[j] = path[j];
+            j++;
+        }
+        dir[dir_len] = '\0';
+    }
+
+    printf("Extracted parent: %s\n",dir);
+    printf("Returning from ADD_FILE_NODE\n");
+
     return dir;
 }
 
