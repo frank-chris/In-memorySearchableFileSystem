@@ -7,7 +7,7 @@
 //     
 //     struct imsfs_tree_node *parent;        //link to parent
 //     struct imsfs_tree_node **children;      //links to children
-//     int num_children;                       //number of children
+//     int end_of_children;                       //number of children
 // 
 //     char *data;						//data for read and write
 //     unsigned long int data_len;
@@ -30,9 +30,11 @@ void print_node_data(imsfs_tree_node *node){
 
     printf("Parent: %p\n", node -> parent);
 
-    printf("Number of children: %d\n", node -> num_children);
+    printf("Number of children: %d\n", node -> end_of_children);
 
-    for(int i = 0; i < node -> num_children; i++){
+    printf("MEX: %d\n", node -> mex);
+
+    for(int i = 0; i < node -> end_of_children; i++){
         printf("Child number %d: %p\n", i + 1, node -> children[i]);
     }
     printf("\n");

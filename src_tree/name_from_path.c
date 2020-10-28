@@ -7,7 +7,7 @@
 //     
 //     struct imsfs_tree_node *parent;        //link to parent
 //     struct imsfs_tree_node **children;      //links to children
-//     int num_children;                       //number of children
+//     int end_of_children;                       //number of children
 // 
 //     char *data;						//data for read and write
 //     unsigned long int data_len;
@@ -18,7 +18,7 @@
 char *name_from_path(const char *path){
     printf("call to function: NAME_FROM_PATH, parent_path: %s\n",path);
 
-    if(!strcmp(path, "/"))
+    if(strcmp(path, "/") == 0)
         return NULL;
 
     int pathlen = strlen(path);
@@ -47,7 +47,7 @@ char *name_from_path(const char *path){
 
     name[name_len]='\0';
     printf("Extracted name: %s\n",name);
-    printf("Returning from ADD_FILE_NODE\n");
+    printf("Returning from NAME_FROM_PATH\n");
 
     return name;
 }

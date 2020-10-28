@@ -18,7 +18,12 @@ run:
 	gcc -Wall $(includepath) $(files_fuse) $(files_tree) $(compileflags) $(opflag) $(neededflag)
 
 clean:
+	fusermount -u $(mountpoint)
 	rm -r $(mountpoint)
 	rm imsfs
-	fusermount -u $(mountpoint)
+
+cleanup: 
+	rm -r $(mountpoint)
+	rm imsfs
+
 

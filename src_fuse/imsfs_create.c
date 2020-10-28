@@ -10,21 +10,31 @@
 #include "tree.h"
 #include "imsfs_operations.h"
 
+/** Create and open a file **/
+
 int imsfs_create (const char * path, mode_t mode, struct fuse_file_info *fi){
+
     printf("******************\n");
     printf("CREATE FILE\n");
     printf("create file called at path: %s\n",path);
 
-    imsfs_tree_node* existing_node = get_node(path);
-    printf("existing node pointer check: %p\n",existing_node);
-    if (existing_node!=NULL) return -EEXIST;
-    printf("Node doesn't exist, creating new\n");
+    imsfs_tree_node* existing_node = get_node(path); // checking if entry already exists
+
+    //printf("existing node pointer check: %p\n",existing_node);
+
+    if (existing_node!=NULL) return -EEXIST; //
+
+    //printf("Node doesn't exist, creating new\n");
+
     imsfs_tree_node* added_file_node=add_file_node(parent_from_path(path),name_from_path(path));
-    printf("new node pointer check: %p\n",added_file_node);
-    if (!added_file_node) return -ENOENT;
+
+    //printf("new node pointer check: %p\n",added_file_node);
+
+    if (!added_file_node) return -ENOENT; //parent path invalid
     
     printf("returning from create file\n");
     printf("******************\n");
+    
     return 0;
 }
 

@@ -11,21 +11,23 @@
 #include "imsfs_operations.h"
 
 int imsfs_rmdir (const char *path){
+
     printf("REMOVE DIRECTORY\n");
-    // int ret = remove_empty_dir(path);
-    // switch(ret){
-    //     case -2:
-    //         return -ENOTDIR;
-    //         break;
-    //     case -1:
-    //         return -ENOENT;
-    //         break;
-    //     case 0:
-    //         return -ENOTEMPTY;
-    //         break;
-    //     case 1:
-    //         return 0;
-    //         break;
-    // }
+
+    int ret = remove_empty_dir(path);
+    switch(ret){
+        case -2:
+            return -ENOTDIR;
+            break;
+        case -1:
+            return -ENOENT;
+            break;
+        case 0:
+            return -ENOTEMPTY;
+            break;
+        case 1:
+            return 0;
+            break;
+    }
     return 0;
 }

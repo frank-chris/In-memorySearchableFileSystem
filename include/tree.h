@@ -34,10 +34,12 @@ typedef struct imsfs_tree_node {
     
     struct imsfs_tree_node *parent;        //link to parent
     struct imsfs_tree_node **children;      //links to children
-    int num_children;                       //number of children
+    int end_of_children;                       //number of children
+    int mex;                                 // lowest unfilled location
 
     char *data;						//data for read and write
     unsigned long int data_len;
+
     unsigned int permissions;		        // Permissions
 
 } imsfs_tree_node;
@@ -60,4 +62,12 @@ char *parent_from_path(const char *path);
 imsfs_tree_node *parent_node_from_path(const char *path);
 imsfs_tree_node* get_file_node(const char *path);
 imsfs_tree_node* get_dir_node(const char *path);
+int remove_file_node(const char *path);
+int remove_empty_dir(const char *path);
+int free_file_node(imsfs_tree_node *file_node);
+int free_dir_node_recursive(imsfs_tree_node *dir_node);
+int find_pos(imsfs_tree_node *child, imsfs_tree_node *parent);
+void assign_mex(imsfs_tree_node *parent_node);
+bool check_leaf(imsfs_tree_node *cur);
+int change_filenode_location(const char *oldpath, const char *newpath);
 #endif

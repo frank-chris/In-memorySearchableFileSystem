@@ -35,4 +35,7 @@ int imsfs_rmdir (const char *);
 /** Remove a file */
 int imsfs_unlink (const char *);
 
+/** Rename a file */
+int imsfs_rename (const char *, const char *);
+
 #endif
