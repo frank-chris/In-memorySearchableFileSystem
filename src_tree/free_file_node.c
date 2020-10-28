@@ -17,6 +17,12 @@
 // 
 // } imsfs_tree_node;
 
+/**
+ * Frees memory of file_ node. 
+ * Return -2 if directory node, 
+ * -1 if node is null, 
+ * 1 for success
+*/
 
 int free_file_node(imsfs_tree_node *file_node){
     if(!file_node){

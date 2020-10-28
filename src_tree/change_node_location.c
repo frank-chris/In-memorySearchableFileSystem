@@ -17,6 +17,15 @@
 // 
 // } imsfs_tree_node;
 
+/**
+ * Changes location of the node at oldpath to newpath. 
+ * Return -2 if oldpath a directory, 
+ * -1 if oldpath invalid, 
+ * 0 if newpath invalid, 
+ * 1 for success. 
+ * Also, return -3 if newpath already exists but it points to a directory
+*/
+
 
 int change_filenode_location(const char *oldpath, const char *newpath){
     imsfs_tree_node *cur = get_node(oldpath);
@@ -37,8 +46,9 @@ int change_filenode_location(const char *oldpath, const char *newpath){
         return 0;
     }
 
-    if(get_node(newpath)){ // If a node at that location already exists
-        imsfs_tree_node *existing = get_node(newpath);
+    imsfs_tree_node *existing = get_node(newpath);
+
+    if(existing){ // If a node at that location already exists
         if((existing -> isfile) == false){
             return -3;
         }
@@ -57,6 +67,14 @@ int change_filenode_location(const char *oldpath, const char *newpath){
     parent_node -> children[cur_mex] = cur;
     assign_mex(parent_node);
     cur -> parent = parent_node;
+
+    // Changing the name and path of cur
+    free (cur->name);
+    cur->name = name_from_path(newpath);
+
+    free(cur->path);
+    cur->path = (char*)malloc(sizeof(char)*strlen(newpath)+1);
+    strcpy(cur->path, newpath);
 
     return 1;
 }

@@ -47,6 +47,8 @@ int free_dir_node_recursive(imsfs_tree_node *dir_node){
     // Free up in reverse order of assignment
     free(dir_node -> data);
     dir_node -> data = NULL;
+    free(dir_node -> children); //addition
+    dir_node -> children = NULL;
     free(dir_node -> path);
     dir_node -> path = NULL;
     free(dir_node -> name);

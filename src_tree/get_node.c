@@ -44,22 +44,26 @@ imsfs_tree_node *get_node(const char *path){
         }
         curptr++;
 
-        int subdir_len = nxtptr - curptr;
+        int subdir_len = nxtptr - curptr + 1;
         if(nxtptr == pathlen)
             subdir_len++;
         if(subdir_len <= 0){
             error_msg("Node not found", "Invalid path");
             return NULL;
         }
-        sub_dir = (char *)malloc(sizeof(char) * pathlen + 1);
+        sub_dir = (char *)malloc(sizeof(char) * subdir_len);
         for(int i = curptr; i < nxtptr; i++){
             sub_dir[i - curptr] = path[i];
         }
+        sub_dir[nxtptr - curptr] = '\0';
 
         for(int i = 0; i < (cur -> end_of_children); i++){
             if(!(cur -> children[i]))
                 continue;
             char *tmp_name = (cur -> children[i]) -> name;
+            printf("Temp name dir: %s\n", tmp_name);
+            printf("Sub dir name: %s\n", sub_dir);
+            printf("Length of sub_dir name %d\n", subdir_len);
             if(strcmp(tmp_name, sub_dir) == 0){
                 cur = cur -> children[i];
                 found = 1;
@@ -79,6 +83,8 @@ imsfs_tree_node *get_node(const char *path){
 
     if(!resolved){
             error_msg("Node not found", "Invalid path");
+            printf("Path is %s\n", path);
+            printf("Unresolved one\n");
             return NULL;
     }
 

@@ -8,12 +8,22 @@
 //     struct imsfs_tree_node *parent;        //link to parent
 //     struct imsfs_tree_node **children;      //links to children
 //     int end_of_children;                       //number of children
+//     int mex;                                  // lowest unfilled location 
 // 
 //     char *data;						//data for read and write
 //     unsigned long int data_len;
 // 
 // } imsfs_tree_node;
 
+
+/*
+Cases:
+1. parent path invalid -> return NULL
+2. entry already exists -> return NULL
+3. successful allocation -> returns pointer to newly added file node
+*/
+
+// returns NULL if parent path invalid
 
 imsfs_tree_node *add_file_node(const char *parent_path, const char *name){
     printf("call to function: ADD_FILE_NODE, parent_path: %s, child_name: %s\n",parent_path, name);
@@ -40,7 +50,7 @@ imsfs_tree_node *add_file_node(const char *parent_path, const char *name){
         return NULL;
     }
 
-    imsfs_tree_node *new_node = (imsfs_tree_node *)malloc(sizeof(imsfs_tree_node) + 1);
+    imsfs_tree_node *new_node = (imsfs_tree_node *)malloc(sizeof(imsfs_tree_node));
     
     int cur_mex = parent_node -> mex;
     if(cur_mex == (parent_node -> end_of_children)){
@@ -58,9 +68,10 @@ imsfs_tree_node *add_file_node(const char *parent_path, const char *name){
     new_node -> parent = parent_node;
     new_node -> children = NULL;
     new_node -> end_of_children = 0;
+    new_node -> mex = -1;
     new_node -> data = NULL;
     new_node -> data_len = 0;
-    root -> permissions = FILE_PERM;
+    new_node -> permissions = FILE_PERM;
 
     free(fullpath);
     fullpath = NULL;

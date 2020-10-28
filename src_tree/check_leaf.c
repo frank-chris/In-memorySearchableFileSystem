@@ -30,9 +30,9 @@ bool check_leaf(imsfs_tree_node *cur){
     for(int i = 0; i < (cur -> end_of_children); i++){
         imsfs_tree_node *child = cur -> children[i];
         if(child != NULL){
-            return true;
+            return false;
         }
     }
-    return false;
+    return true;
 }
 

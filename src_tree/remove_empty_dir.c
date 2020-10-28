@@ -17,8 +17,16 @@
 // 
 // } imsfs_tree_node;
 
+/**
+ * Return -2 if file exists on path, 
+ * -1 if path invalid, 
+ * 0 if path valid but directory not empty. 
+ * 1 if path exists and directory is empty(success)
+*/
+
 
 int remove_empty_dir(const char *path){
+    printf("Empty directory path %s\n", path);
     imsfs_tree_node *cur = get_node(path);
 
     if(!cur){

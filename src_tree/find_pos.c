@@ -18,17 +18,27 @@
 // } imsfs_tree_node;
 
 
-int remove_file_node(const char *path){
-    imsfs_tree_node *cur = get_node(path);
-
-    if(!cur){
+int find_pos(imsfs_tree_node *child, imsfs_tree_node *parent_node){
+    if(!child){
         return -1;
     }
 
-    if(cur -> isfile == false){
-        return -2;
-    }
+    char *child_name = child -> name;
 
-    return free_file_node(cur);
+    int i = 0;
+    while(i < (parent_node -> end_of_children)){
+        imsfs_tree_node *cur_child = parent_node -> children[i];
+        if(!cur_child){
+            i++;
+            continue;
+        }
+        char *curname = cur_child -> name;
+        if(strcmp(curname, child_name) == 0){
+            // i++;
+            return i;
+        }
+        i++;
+    }
+    return -1;
 }
 

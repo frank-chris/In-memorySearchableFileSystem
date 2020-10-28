@@ -15,12 +15,11 @@
 // } imsfs_tree_node;
 
 
-char *parent_from_path(const char *path){
-    printf("call to function: PARENT_FROM_PATH, parent_path: %s\n",path);
+char *name_from_path(const char *path){
+    printf("call to function: NAME_FROM_PATH, parent_path: %s\n",path);
 
-    char *dir = (char *)malloc(sizeof(char) + 1);
     if(strcmp(path, "/") == 0)
-        return dir; // Root is the special case
+        return NULL;
 
     int pathlen = strlen(path);
     bool found = false;
@@ -36,25 +35,20 @@ char *parent_from_path(const char *path){
         return NULL;
     }
     
-    //Special case -> "/file.txt", extracted parent should be "/"
-
-    int dir_len = i;
-    if (dir_len==0){
-        strcpy(dir,"/");
-    }
-    else{
-        dir = (char *)realloc(dir, sizeof(char) * dir_len + 1);
-        int j = 0;
-        while(j < dir_len){
-            dir[j] = path[j];
-            j++;
-        }
-        dir[dir_len] = '\0';
+    i++;
+    int name_len = pathlen - i;
+    char *name = (char *)malloc(sizeof(char) * name_len + 1);
+    int j = 0;
+    while(i < pathlen){
+        name[j] = path[i];
+        j++;
+        i++;
     }
 
-    printf("Extracted parent: %s\n",dir);
-    printf("Returning from ADD_FILE_NODE\n");
+    name[name_len]='\0';
+    printf("Extracted name: %s\n",name);
+    printf("Returning from NAME_FROM_PATH\n");
 
-    return dir;
+    return name;
 }
 

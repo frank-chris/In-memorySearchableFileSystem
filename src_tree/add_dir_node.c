@@ -14,6 +14,11 @@
 // 
 // } imsfs_tree_node;
 
+/* Cases
+1. parent path invalid -> return NULL
+2. entry already present -> return NULL
+3. successful -> return pointer to the new node
+*/
 
 imsfs_tree_node *add_dir_node(const char *parent_path, const char *name){
 
@@ -60,7 +65,7 @@ imsfs_tree_node *add_dir_node(const char *parent_path, const char *name){
     new_node -> mex = 0;
     new_node -> data = NULL;
     new_node -> data_len = 0;
-    root -> permissions = DIR_PERM;
+    new_node -> permissions = DIR_PERM;
 
     free(fullpath);
     fullpath = NULL;
