@@ -30,6 +30,7 @@ int imsfs_getattr_use(const char *path, struct stat *s){
     
     if (!cur_node){
         free(file_name);    
+        file_name = NULL;
         return -ENOENT;
     }
 
@@ -38,6 +39,7 @@ int imsfs_getattr_use(const char *path, struct stat *s){
     s->st_mode= S_IFREG | cur_node->permissions;
 
     free(file_name);
+    file_name = NULL;
 
     return 0;
 }

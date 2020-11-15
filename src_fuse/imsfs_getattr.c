@@ -27,7 +27,7 @@ int imsfs_getattr (const char *path, struct stat *s){
     printf("Is path a use query: %d\n",use_query);
     if (use_query) return imsfs_getattr_use(path, s);
 
-    imsfs_tree_node* cur_node=get_node(path);
+    imsfs_tree_node* cur_node = get_node(path);
     
     printf("%p\n",cur_node);
     printf("Get node no problem\n");
