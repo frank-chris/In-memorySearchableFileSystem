@@ -23,9 +23,9 @@ imsfs_tree_node* get_node_from_search_buffer(char* file){
         // printf("Entry %d: %s\n",i+1,search_buffer[i]->name);
         // printf("Entry %d pointer: %p\n",i+1,search_buffer[i]);
         
-        if (search_buffer[i] != NULL && search_buffer[i]->isfile == 1 && strcmp(search_buffer[i]->name,file) == 0){
+        if (search_buffer[i] != NULL && search_buffer[i]->isfile == 1 && strcmp(search_buffer[i]->name, file) == 0){
             
-            printf("Match found with entry %d\n",i+1);
+            printf("Match found with entry %d\n", i + 1);
             return search_buffer[i];
 
         }

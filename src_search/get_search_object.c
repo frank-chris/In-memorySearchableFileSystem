@@ -29,9 +29,8 @@ imsfs_searchobj* get_search_object(const char *path){
 
     if (strcmp(path,"/FIND") == 0) return searcher;
 
-    int cur = 0;
     int search_prefix_len = strlen(SEARCH_KEYWORD);
-    for (int i=0; i<search_prefix_len + 2; i++) cur++;
+    int cur = search_prefix_len + 2;
 
     int path_len = strlen(path);
 
@@ -86,7 +85,7 @@ imsfs_searchobj* get_search_object(const char *path){
             // printf("assigning metadata to tag: %s\n",*cur_tag_ptr);
         }
 
-        // nect iteration
+        // next iteration
         // printf("Next iteration...\n");
         tag = tag ^ 1; //flip tag
         cur = next + 1;

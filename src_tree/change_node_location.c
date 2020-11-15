@@ -28,7 +28,7 @@
 */
 
 
-int change_filenode_location(const char *oldpath, const char *newpath){
+int change_node_location(const char *oldpath, const char *newpath){
     imsfs_tree_node *cur = get_node(oldpath);
 
     //Remove from search buffer if it exists there
@@ -38,11 +38,6 @@ int change_filenode_location(const char *oldpath, const char *newpath){
         return -1; // Invalid old path
     }
 
-    if((cur -> isfile) == false){
-        return -2; // We need oldpath to point to a file
-    }
-
-    
     imsfs_tree_node *cur_parent = parent_node_from_path(oldpath);
     imsfs_tree_node *parent_node = parent_node_from_path(newpath);
     
@@ -52,7 +47,7 @@ int change_filenode_location(const char *oldpath, const char *newpath){
 
     imsfs_tree_node *existing = get_node(newpath);
 
-    if(existing){ // If a node at that location already exists
+    if((existing) && (cur -> isfile)){ // If a node at that location already exists
         if((existing -> isfile) == false){
             return -3;
         }
@@ -63,7 +58,8 @@ int change_filenode_location(const char *oldpath, const char *newpath){
     if(pos < (cur_parent -> mex)){
         cur_parent -> mex = pos;
     }
-    int cur_mex = parent_node -> mex;
+
+    int cur_mex = parent_node -> mex; // Parent node of new node
     if(cur_mex == (parent_node -> end_of_children)){
         parent_node -> end_of_children++;
         parent_node -> children = realloc(parent_node -> children, sizeof(imsfs_tree_node *) * parent_node -> end_of_children);
@@ -72,13 +68,28 @@ int change_filenode_location(const char *oldpath, const char *newpath){
     assign_mex(parent_node);
     cur -> parent = parent_node;
 
-    // Changing the name and path of cur
-    free (cur->name);
-    cur->name = name_from_path(newpath);
+    char *new_name = name_from_path(newpath);
+    free(cur -> name);
+    cur -> name = NULL;
+    int new_len = strlen(newpath);
+    cur -> name = malloc(sizeof(char) * (new_len + 1));
+    for(int i = 0; i < new_len; i++){
+        cur -> name[i] = new_name[i];
+    }
+    cur -> name[new_len] = '\0';
 
-    free(cur->path);
-    cur->path = (char*)malloc(sizeof(char)*strlen(newpath)+1);
-    strcpy(cur->path, newpath);
+
+    if(cur -> isfile){
+        // Changing the path of cur
+
+        free(cur->path);
+        cur -> path = NULL;
+        cur->path = (char*)malloc(sizeof(char)*strlen(newpath)+1);
+        strcpy(cur->path, newpath);
+    }
+    else{
+        return recursive_path_update(parent_from_path(newpath), cur);
+    }
 
     return 1;
 }

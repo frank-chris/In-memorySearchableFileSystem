@@ -13,7 +13,7 @@
 void free_search_buffer(){
     
     for (int i=0; i<num_search_buffer_entries; i++){
-        search_buffer[i] = NULL; //only nullify as they point to tree nodes, don't fre
+        search_buffer[i] = NULL; //only nullify as they point to tree nodes, don't free
     }
     
     free(search_buffer);

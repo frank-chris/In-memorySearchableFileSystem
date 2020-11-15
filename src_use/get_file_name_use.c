@@ -16,8 +16,7 @@ char* get_file_name_use(const char* path){
         return NULL;
     }
     
-    int cur = 0;
-    for (int i=0; i<strlen(USE_KEYWORD)+2; i++) cur++;
+    int cur = strlen(USE_KEYWORD) + 2;
     
     int next = cur;
     while(next<strlen(path) && path[next]!='/') next++;

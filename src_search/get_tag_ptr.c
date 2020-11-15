@@ -31,6 +31,7 @@ char** get_tag_ptr(imsfs_searchobj* searcher, const char* tag){
     for (int i=0;i<strlen(curtag);i++){
         curtag[i] = tolower(curtag[i]);
     }
+    curtag[strlen(tag)] = '\0';
 
     printf("tag lowercased: %s\n", curtag);
 

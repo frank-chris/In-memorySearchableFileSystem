@@ -23,7 +23,7 @@ int imsfs_readdir_search(const char *path, void *buffer, fuse_fill_dir_t filler,
     printf("search object created at: %p\n",searcher);
 
     if (!searcher) return -ENOTDIR; //invalid search path
-    
+
     tree_search_fill(filler, buffer, searcher);
 
     return 0;

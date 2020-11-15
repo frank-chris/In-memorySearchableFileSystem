@@ -69,5 +69,7 @@ int free_dir_node_recursive(imsfs_tree_node *dir_node);
 int find_pos(imsfs_tree_node *child, imsfs_tree_node *parent);
 void assign_mex(imsfs_tree_node *parent_node);
 bool check_leaf(imsfs_tree_node *cur);
-int change_filenode_location(const char *oldpath, const char *newpath);
+int change_node_location(const char *oldpath, const char *newpath);
+int rename_node(const char *old_path, const char *new_path);
+int recursive_path_update(char *parent_path, imsfs_tree_node *cur_node);
 #endif
