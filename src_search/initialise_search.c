@@ -35,6 +35,7 @@ void initialise_search(){
 
     // specify tags here manually
     strcpy(supported_tags[0],"PREFIX");
+    strcpy(supported_tags[1],"SUBSTR");
 
     //search buffer
     search_buffer = NULL;

@@ -10,7 +10,7 @@
 #include "tree.h"
 #include "search_use_query.h"
 
-// ls ./FIND/PREFIX/abc/AUTHOR/raghav
+// ls ./FIND/PREFIX/abc/TYPE/raghav
 
 /**
  * Returns object if the search query is valid
@@ -96,6 +96,7 @@ imsfs_searchobj* get_search_object(const char *path){
 
     printf("Search object has the following parameters:\n");
     printf("prefix: %s\n", searcher->prefix);
+    printf("substr: %s\n", searcher -> substr);
 
     printf ("returning from get_search_object\n");
     return searcher;

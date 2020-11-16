@@ -15,7 +15,8 @@ imsfs_searchobj* create_search_object(){
     imsfs_searchobj* searcher = malloc(sizeof(imsfs_searchobj));
 
     //Initialise members
-    searcher->prefix = NULL;
+    searcher -> prefix = NULL;
+    searcher -> substr = NULL;
 
     return searcher;
 }

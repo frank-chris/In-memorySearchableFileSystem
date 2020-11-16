@@ -17,10 +17,7 @@ char* get_query(const char *request){
     int request_len = strlen(request);
     int prefix_len = strlen("/FIND");
 
-    int curptr = 0;
-    for (int i=0; i<prefix_len; i++) curptr++;
-
-    curptr++;
+    int curptr = prefix_len + 1;
     int nxtptr = curptr;
 
     while(nxtptr<=request_len && nxtptr!='/'){

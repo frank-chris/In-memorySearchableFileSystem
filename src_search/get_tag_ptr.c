@@ -36,7 +36,11 @@ char** get_tag_ptr(imsfs_searchobj* searcher, const char* tag){
     printf("tag lowercased: %s\n", curtag);
 
     //switch for tag, can't use switch for strings
-    if (strcmp("prefix",curtag) == 0) {printf("returning from get_tag_ptr\n"); return (&searcher->prefix);}
+    if (strcmp("prefix",curtag) == 0) {printf("returning prefix from get_tag_ptr\n"); return (&searcher->prefix);}
+    else if(strcmp("substr", curtag) == 0){
+        printf("returning substr from get_tag_ptr\n");
+        return &(searcher -> substr);
+    }
     else{
         free(curtag);
         curtag = NULL;

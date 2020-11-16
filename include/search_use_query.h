@@ -15,7 +15,7 @@
 
 
 /**
- * ls ./FIND/PREFIX/abc/AUTHOR/Raghav
+ * ls ./FIND/PREFIX/abc/SUBSTR/txt
  * 
 */
 
@@ -26,12 +26,12 @@
 */
 
 #define MAX_TAG_LENGTH 10
-#define NUM_SUPPORTED_TAGS 1
+#define NUM_SUPPORTED_TAGS 2
 
 
 typedef struct imsfs_searchobj{
-    // char* author;
     char* prefix;
+    char *substr;
 } imsfs_searchobj;
 
 char* SEARCH_KEYWORD;
@@ -53,7 +53,7 @@ imsfs_searchobj* get_search_object(const char *path);
 char** get_tag_ptr(imsfs_searchobj* searcher, const char* tag);
 void initialise_search();
 int is_search_query(const char *path);
-int match_node(imsfs_tree_node *node, imsfs_searchobj *searcher);
+int match_node(imsfs_tree_node *node, imsfs_searchobj *searcher, int m, int lps[]);
 void tree_search_fill(fuse_fill_dir_t filler, void *buffer, imsfs_searchobj* searcher);
 
 //src use
