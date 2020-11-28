@@ -12,8 +12,8 @@
 
 int imsfs_rmdir (const char *path){
 
-    printf("REMOVE DIRECTORY\n");
-    printf("Path to be removed: %s\n", path);
+    // printf("REMOVE DIRECTORY\n");
+    // printf("Path to be removed: %s\n", path);
 
     int ret = remove_empty_dir(path);
     switch(ret){

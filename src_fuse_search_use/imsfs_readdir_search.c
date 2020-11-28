@@ -17,10 +17,10 @@
 
 int imsfs_readdir_search(const char *path, void *buffer, fuse_fill_dir_t filler, off_t offset, struct fuse_file_info *fi){
     
-    printf("imsfs_readdir_search called at path: %s\n",path);
+    // printf("imsfs_readdir_search called at path: %s\n",path);
     
     imsfs_searchobj* searcher = get_search_object(path);
-    printf("search object created at: %p\n",searcher);
+    // printf("search object created at: %p\n",searcher);
 
     if (!searcher) return -ENOTDIR; //invalid search path
 

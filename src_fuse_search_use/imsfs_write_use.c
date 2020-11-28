@@ -30,10 +30,10 @@
 
 int imsfs_write_use (const char *path, const char *buf, size_t size, off_t offset, struct fuse_file_info *fi){
 
-    printf("***************************************\n");
-    printf("WRITE USE FILE\n");
+    // printf("***************************************\n");
+    // printf("WRITE USE FILE\n");
 
-    printf("path passed to imsfs_write_use: %s\n",path);
+    // printf("path passed to imsfs_write_use: %s\n",path);
 
     char* file_name = get_file_name_use(path);
 
@@ -46,7 +46,7 @@ int imsfs_write_use (const char *path, const char *buf, size_t size, off_t offse
         return -ENOENT;
     }
 
-    printf("data length of file before write: %lu\n",cur_node->data_len);
+    // printf("data length of file before write: %lu\n",cur_node->data_len);
     
     unsigned long int data_len = cur_node->data_len;
 
@@ -63,11 +63,11 @@ int imsfs_write_use (const char *path, const char *buf, size_t size, off_t offse
     strncpy(cur_node->data + offset, buf, size);
     cur_node->data[end]='\0';
 
-    printf("data length of file after write: %lu\n",cur_node->data_len);
+    // printf("data length of file after write: %lu\n",cur_node->data_len);
     int ret_val = size;
-    printf("returning from imsfs_write with return value: %d\n",ret_val);
+    // printf("returning from imsfs_write with return value: %d\n",ret_val);
 
-    printf("***************************************\n");
+    // printf("***************************************\n");
     
     free(file_name);
     return size;

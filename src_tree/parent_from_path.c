@@ -16,7 +16,7 @@
 
 
 char *parent_from_path(const char *path){
-    printf("call to function: PARENT_FROM_PATH, path: %s\n",path);
+    // printf("call to function: PARENT_FROM_PATH, path: %s\n",path);
 
     char *dir = (char *)malloc(sizeof(char) + 1);
     if(strcmp(path, "/") == 0)
@@ -52,8 +52,8 @@ char *parent_from_path(const char *path){
         dir[dir_len] = '\0';
     }
 
-    printf("Extracted parent: %s\n",dir);
-    printf("Returning from PARENT_FROM_PATH\n");
+    // printf("Extracted parent: %s\n",dir);
+    // printf("Returning from PARENT_FROM_PATH\n");
 
     return dir;
 }

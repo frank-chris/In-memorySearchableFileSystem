@@ -13,7 +13,7 @@
 
 char** get_tag_ptr(imsfs_searchobj* searcher, const char* tag){
     
-    printf("get_tag_ptr called for object: %p and path: %s\n",searcher,tag);
+    // printf("get_tag_ptr called for object: %p and path: %s\n",searcher,tag);
 
     int found = 0;
 
@@ -24,7 +24,7 @@ char** get_tag_ptr(imsfs_searchobj* searcher, const char* tag){
     }
     if (!found) return NULL;
 
-    printf("is tag valid: %d\n",found);
+    // printf("is tag valid: %d\n",found);
 
     char* curtag = malloc(sizeof(char)*(strlen(tag)+1));
     strcpy(curtag, tag);
@@ -33,12 +33,12 @@ char** get_tag_ptr(imsfs_searchobj* searcher, const char* tag){
     }
     curtag[strlen(tag)] = '\0';
 
-    printf("tag lowercased: %s\n", curtag);
+    // printf("tag lowercased: %s\n", curtag);
 
     //switch for tag, can't use switch for strings
     if (strcmp("prefix",curtag) == 0) {printf("returning prefix from get_tag_ptr\n"); return (&searcher->prefix);}
     else if(strcmp("substr", curtag) == 0){
-        printf("returning substr from get_tag_ptr\n");
+        // printf("returning substr from get_tag_ptr\n");
         return &(searcher -> substr);
     }
     else{

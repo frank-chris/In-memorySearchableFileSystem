@@ -13,8 +13,8 @@
 
 int imsfs_readdir(const char *path, void *buffer, fuse_fill_dir_t filler, off_t offset, struct fuse_file_info *fi ){
 
-    printf("READ DIRECTORY\n");
-    printf("imsfs_readdir called at path: %s\n",path);
+    // printf("READ DIRECTORY\n");
+    // printf("imsfs_readdir called at path: %s\n",path);
 
     if (is_search_query(path)) return imsfs_readdir_search(path, buffer, filler, offset, fi);
 

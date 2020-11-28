@@ -16,7 +16,7 @@
 
 
 char *name_from_path(const char *path){
-    printf("call to function: NAME_FROM_PATH, parent_path: %s\n",path);
+    // printf("call to function: NAME_FROM_PATH, parent_path: %s\n",path);
 
     if(strcmp(path, "/") == 0)
         return NULL;
@@ -46,8 +46,8 @@ char *name_from_path(const char *path){
     }
 
     name[name_len]='\0';
-    printf("Extracted name: %s\n",name);
-    printf("Returning from NAME_FROM_PATH\n");
+    // printf("Extracted name: %s\n",name);
+    // printf("Returning from NAME_FROM_PATH\n");
 
     return name;
 }

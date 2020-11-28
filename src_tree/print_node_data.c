@@ -17,31 +17,31 @@
 
 void print_node_data(imsfs_tree_node *node){
 
-    printf("Name of file: %s\n", node -> name);
+    // printf("Name of file: %s\n", node -> name);
 
-    printf("Path relative to mountpoint: %s\n", node -> path);
+    // printf("Path relative to mountpoint: %s\n", node -> path);
 
     if(node -> isfile){
-        printf("FILE\n");
+        // printf("FILE\n");
     }
     else{
-        printf("DIRECTORY\n");
+        // printf("DIRECTORY\n");
     }
 
-    printf("Parent: %p\n", node -> parent);
+    // printf("Parent: %p\n", node -> parent);
 
-    printf("Number of children: %d\n", node -> end_of_children);
+    // printf("Number of children: %d\n", node -> end_of_children);
 
-    printf("MEX: %d\n", node -> mex);
+    // printf("MEX: %d\n", node -> mex);
 
     for(int i = 0; i < node -> end_of_children; i++){
-        printf("Child number %d: %p\n", i + 1, node -> children[i]);
+        // printf("Child number %d: %p\n", i + 1, node -> children[i]);
     }
-    printf("\n");
+    // printf("\n");
 
-    printf("Size of file in bytes: %ld\n", node -> data_len);
+    // printf("Size of file in bytes: %ld\n", node -> data_len);
 
-    printf("Permissions of the node: %u\n",node->permissions);
+    // printf("Permissions of the node: %u\n",node->permissions);
 
-    printf("\n");
+    // printf("\n");
 }

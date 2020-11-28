@@ -13,7 +13,7 @@
 
 int imsfs_getattr_search(const char *path, struct stat *s){
 
-    printf("imsfs_getattr_search called at path: %s\n",path);
+    // printf("imsfs_getattr_search called at path: %s\n",path);
     s->st_nlink = 2; //"." and ".."
     s->st_size=0;
     s->st_mode= S_IFDIR | DIR_PERM;

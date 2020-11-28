@@ -14,17 +14,17 @@
 
 int imsfs_open (const char *path, struct fuse_file_info *fi){
 
-    printf("OPEN FILE\n");
-    printf("open file called at path: %s\n",path);
+    // printf("OPEN FILE\n");
+    // printf("open file called at path: %s\n",path);
 
     //Use query
     int use_query = is_use_query(path);
-    printf("Is path a use query: %d\n",use_query);
+    // printf("Is path a use query: %d\n",use_query);
     if (use_query) return imsfs_open_use(path, fi);
 
     imsfs_tree_node* cur_node = get_node(path);
 
-    printf("pointer to the node: %p\n", cur_node);
+    // printf("pointer to the node: %p\n", cur_node);
 
     int ret_val; //return value
     if (!cur_node) ret_val = -ENOENT;
@@ -33,6 +33,6 @@ int imsfs_open (const char *path, struct fuse_file_info *fi){
     }
     else ret_val = 0;
 
-    printf("Returning from imsfs_open with return value: %d\n",ret_val);
+    // printf("Returning from imsfs_open with return value: %d\n",ret_val);
     return ret_val;
 }

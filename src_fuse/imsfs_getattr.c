@@ -12,25 +12,25 @@
 #include "imsfs_operations_search_use.h"
 
 int imsfs_getattr (const char *path, struct stat *s){
-    printf("******************\n");
-    printf("GETATTR\n");
-    printf("getattr called at path: %s\n",path);
+    // printf("******************\n");
+    // printf("GETATTR\n");
+    // printf("getattr called at path: %s\n",path);
 
 
     //Search query
     int search_query = is_search_query(path);
-    printf("Is path a search query: %d\n",search_query);
+    // printf("Is path a search query: %d\n",search_query);
     if (search_query) return imsfs_getattr_search(path, s);
 
     //Use query
     int use_query = is_use_query(path);
-    printf("Is path a use query: %d\n",use_query);
+    // printf("Is path a use query: %d\n",use_query);
     if (use_query) return imsfs_getattr_use(path, s);
 
     imsfs_tree_node* cur_node = get_node(path);
     
-    printf("%p\n",cur_node);
-    printf("Get node no problem\n");
+    // printf("%p\n",cur_node);
+    // printf("Get node no problem\n");
     
     if (!cur_node) return -ENOENT;
     
@@ -53,7 +53,7 @@ int imsfs_getattr (const char *path, struct stat *s){
 
     // print_node_data(cur_node);
 
-    printf("Returning from getattr\n");
-    printf("******************\n");
+    // printf("Returning from getattr\n");
+    // printf("******************\n");
     return 0;
 }

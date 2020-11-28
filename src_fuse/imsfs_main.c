@@ -60,13 +60,13 @@ static struct fuse_operations imsfs_operations = {
 
 int main(int argc, char **argv) {
 
-	printf("Initialising tree\n");
+	// printf("Initialising tree\n");
     initialise_imsfs();
-	printf("Initialised tree\n");
+	// printf("Initialised tree\n");
 
-	printf("Initialising searchability\n");
+	// printf("Initialising searchability\n");
     initialise_search();
-	printf("Initialised searchability\n");
+	// printf("Initialised searchability\n");
 
     return fuse_main(argc, argv, &imsfs_operations, NULL);
 	// return 0;

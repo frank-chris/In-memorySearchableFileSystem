@@ -12,7 +12,7 @@
 
 int imsfs_getattr_use(const char *path, struct stat *s){
 
-    printf("imsfs_getattr_use called at path: %s\n",path);
+    // printf("imsfs_getattr_use called at path: %s\n",path);
 
     if (strcmp(path, "/USE") == 0){
         s->st_nlink = 2; //"." and ".."
@@ -22,7 +22,7 @@ int imsfs_getattr_use(const char *path, struct stat *s){
     }
     
     char* file_name = get_file_name_use(path);
-    printf("extracted file name: %s\n", file_name);
+    // printf("extracted file name: %s\n", file_name);
 
     if (!file_name) return -ENOENT;
     

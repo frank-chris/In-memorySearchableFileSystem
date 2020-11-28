@@ -15,11 +15,11 @@
 
 int imsfs_unlink (const char *path){
     
-    printf("REMOVE FILE\n");
+    // printf("REMOVE FILE\n");
 
     //Use query
     int use_query = is_use_query(path);
-    printf("Is path a use query: %d\n",use_query);
+    // printf("Is path a use query: %d\n",use_query);
     if (use_query) return imsfs_unlink_use(path);
     
     int ret = remove_file_node(path);

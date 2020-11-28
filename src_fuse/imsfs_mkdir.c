@@ -13,9 +13,9 @@
 
 int imsfs_mkdir (const char *path, mode_t mode){
 
-    printf("******************\n");
-    printf("CREATE DIRECTORY\n");
-    printf("Create directory called with path: %s\n",path);
+    // printf("******************\n");
+    // printf("CREATE DIRECTORY\n");
+    // printf("Create directory called with path: %s\n",path);
 
     imsfs_tree_node* existing_node = get_node(path);
 
@@ -31,8 +31,8 @@ int imsfs_mkdir (const char *path, mode_t mode){
 
     if (!added_directory_node) return -ENOENT;
 
-    printf("Returning from mkdir\n");
-    printf("******************\n");
+    // printf("Returning from mkdir\n");
+    // printf("******************\n");
  
     return 0;
 }

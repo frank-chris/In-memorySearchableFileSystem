@@ -19,13 +19,13 @@
 
 imsfs_searchobj* get_search_object(const char *path){
 
-    printf("get_search_obj called at path: %s\n",path);
+    // printf("get_search_obj called at path: %s\n",path);
 
     if (!path) return NULL;
     else if (!is_search_query(path)) return NULL;
 
     imsfs_searchobj *searcher = create_search_object();
-    printf("created new search object at location: %p\n",searcher);
+    // printf("created new search object at location: %p\n",searcher);
 
     if (strcmp(path,"/FIND") == 0) return searcher;
 
@@ -42,9 +42,9 @@ imsfs_searchobj* get_search_object(const char *path){
     
     while(cur < path_len){
 
-        printf("Iteration no: %d\n",counter); counter+=1;
-        printf("are we looking for tag: %d\n",tag);
-        printf("current position in path: %d\n",cur);
+        // printf("Iteration no: %d\n",counter); counter+=1;
+        // printf("are we looking for tag: %d\n",tag);
+        // printf("current position in path: %d\n",cur);
         
         int next = cur;
         while(next<path_len && path[next] != '/') next++;
@@ -59,7 +59,7 @@ imsfs_searchobj* get_search_object(const char *path){
         }
         data[data_len] = '\0';
         
-        printf("extracted data from path: %s\n",data);
+        // printf("extracted data from path: %s\n",data);
 
 
         if (tag){
@@ -94,10 +94,10 @@ imsfs_searchobj* get_search_object(const char *path){
 
     }
 
-    printf("Search object has the following parameters:\n");
-    printf("prefix: %s\n", searcher->prefix);
-    printf("substr: %s\n", searcher -> substr);
+    // printf("Search object has the following parameters:\n");
+    // printf("prefix: %s\n", searcher->prefix);
+    // printf("substr: %s\n", searcher -> substr);
 
-    printf ("returning from get_search_object\n");
+    // printf ("returning from get_search_object\n");
     return searcher;
 }

@@ -29,7 +29,7 @@
 
 int imsfs_write_buf (const char *path, struct fuse_bufvec *buf, off_t off, struct fuse_file_info *fi){
 
-    printf("WRITE BUFFER TO FILE\n");
+    // printf("WRITE BUFFER TO FILE\n");
 
     // printf("path passed to imsfs_write: %s\n",path);
 

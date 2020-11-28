@@ -14,9 +14,9 @@
 
 int imsfs_create (const char * path, mode_t mode, struct fuse_file_info *fi){
 
-    printf("******************\n");
-    printf("CREATE FILE\n");
-    printf("create file called at path: %s\n",path);
+    // printf("******************\n");
+    // printf("CREATE FILE\n");
+    // printf("create file called at path: %s\n",path);
 
     imsfs_tree_node* existing_node = get_node(path); // checking if entry already exists
 
@@ -32,8 +32,8 @@ int imsfs_create (const char * path, mode_t mode, struct fuse_file_info *fi){
 
     if (!added_file_node) return -ENOENT; //parent path invalid
     
-    printf("returning from create file\n");
-    printf("******************\n");
+    // printf("returning from create file\n");
+    // printf("******************\n");
     
     return 0;
 }

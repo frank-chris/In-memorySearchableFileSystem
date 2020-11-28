@@ -24,7 +24,7 @@ imsfs_tree_node *get_node(const char *path){
     // 3) Generate string from characters in between
     // 4) Current string should be a child current node. If so make this new current node and loop.
     
-    printf("path passed to get_node: %s\n",path);
+    // printf("path passed to get_node: %s\n",path);
     
     imsfs_tree_node *cur = root;
 
@@ -65,9 +65,9 @@ imsfs_tree_node *get_node(const char *path){
             if(!(cur -> children[i]))
                 continue;
             char *tmp_name = (cur -> children[i]) -> name;
-            printf("Temp name dir: %s\n", tmp_name);
-            printf("Sub dir name: %s\n", sub_dir);
-            printf("Length of sub_dir name %d\n", subdir_len);
+            // printf("Temp name dir: %s\n", tmp_name);
+            // printf("Sub dir name: %s\n", sub_dir);
+            // printf("Length of sub_dir name %d\n", subdir_len);
             if(strcmp(tmp_name, sub_dir) == 0){
                 cur = cur -> children[i];
                 found = 1;
@@ -87,8 +87,8 @@ imsfs_tree_node *get_node(const char *path){
 
     if(!resolved){
             error_msg("Node not found", "Invalid path");
-            printf("Path is %s\n", path);
-            printf("Unresolved one\n");
+            // printf("Path is %s\n", path);
+            // printf("Unresolved one\n");
             return NULL;
     }
 

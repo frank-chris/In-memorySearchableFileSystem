@@ -20,13 +20,13 @@
 
 int rename_node(const char *old_path, const char *new_path){
     if(get_node(new_path)){
-        printf("Path at %s already exists.\n", new_path);
+        // printf("Path at %s already exists.\n", new_path);
         return -1;
     }
 
     imsfs_tree_node *parent_node = parent_node_from_path(new_path);
     if(!parent_node){
-        printf("Parent at %s does not exist.\n", new_path);
+        // printf("Parent at %s does not exist.\n", new_path);
         return -1;
     }
 

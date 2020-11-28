@@ -12,10 +12,10 @@
 
 int imsfs_unlink_use(const char *path){
 
-    printf("imsfs_unlink_use called at path: %s\n",path);
+    // printf("imsfs_unlink_use called at path: %s\n",path);
     
     char* file_name = get_file_name_use(path);
-    printf("extracted file name: %s\n", file_name);
+    // printf("extracted file name: %s\n", file_name);
 
     if (!file_name) return -ENOENT;
     

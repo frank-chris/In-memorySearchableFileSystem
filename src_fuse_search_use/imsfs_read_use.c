@@ -14,7 +14,7 @@
 
 int imsfs_read_use (const char *path, char *buf, size_t size, off_t offset, struct fuse_file_info *fi){
 
-    printf("READ USE FILE\n");
+    // printf("READ USE FILE\n");
 
     char* file_name = get_file_name_use(path);
 

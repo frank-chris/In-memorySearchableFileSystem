@@ -14,9 +14,9 @@
 
 int imsfs_mknod (const char *path, mode_t mode, dev_t dev){
 
-    printf("******************\n");
-    printf("MKNOD\n");
-    printf("create file called at path: %s\n",path);
+    // printf("******************\n");
+    // printf("MKNOD\n");
+    // printf("create file called at path: %s\n",path);
 
     imsfs_tree_node* existing_node = get_node(path); // checking if entry already exists
 
@@ -32,8 +32,8 @@ int imsfs_mknod (const char *path, mode_t mode, dev_t dev){
 
     if (!added_file_node) return -ENOENT; //parent path invalid
     
-    printf("returning from mknod\n");
-    printf("******************\n");
+    // printf("returning from mknod\n");
+    // printf("******************\n");
     
     return 0;
 }

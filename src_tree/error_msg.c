@@ -7,8 +7,8 @@ void error_msg(const char * msg, const char * reason){
     // fputs(reason, stderr);
     // fputs("\n", stderr);
 
-    printf("%s: ",msg);
-    printf("%s\n",reason);
+    // printf("%s: ",msg);
+    // printf("%s\n",reason);
 
     //exit(1);
 }

@@ -16,10 +16,10 @@ int imsfs_rename (const char *old_path, const char *new_path){
 
     imsfs_tree_node *cur = get_node(old_path);
 
-    printf("rename %s to %s\n",old_path,new_path);
+    // printf("rename %s to %s\n",old_path,new_path);
     if((cur -> isfile)){
-        printf("***************************************\n");
-        printf("RENAME FILE\n");
+        // printf("***************************************\n");
+        // printf("RENAME FILE\n");
 
         int ret = change_node_location(old_path, new_path);
         switch(ret) {
@@ -42,8 +42,8 @@ int imsfs_rename (const char *old_path, const char *new_path){
     }
     
     else{
-        printf("***************************************\n");
-        printf("RENAME FOLDER\n");
+        // printf("***************************************\n");
+        // printf("RENAME FOLDER\n");
 
         imsfs_tree_node *new = get_node(new_path);
 
@@ -54,7 +54,7 @@ int imsfs_rename (const char *old_path, const char *new_path){
         }
 
         if((new -> isfile)){
-            printf("Target location is a file\n");
+            // printf("Target location is a file\n");
             return -EISDIR;
         }
         else{
@@ -65,7 +65,7 @@ int imsfs_rename (const char *old_path, const char *new_path){
 
     }
 
-    printf("***************************************\n");
+    // printf("***************************************\n");
     return 0;
 }
 

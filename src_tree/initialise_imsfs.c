@@ -16,10 +16,10 @@
 
 
 void initialise_imsfs(){
-    printf("Initialise imsfs\n");
+    // printf("Initialise imsfs\n");
 
     root = (imsfs_tree_node *)malloc(sizeof(imsfs_tree_node)); // Malloc the root. Now we can enter data.
-    printf("Root node at location %p\n", root);
+    // printf("Root node at location %p\n", root);
 
     root -> isfile = 0;
 

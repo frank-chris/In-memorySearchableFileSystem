@@ -14,8 +14,8 @@
 
 int imsfs_open_use (const char *path, struct fuse_file_info *fi){
     
-    printf("OPEN USE FILE\n");
-    printf("open use file called at path: %s\n",path);
+    // printf("OPEN USE FILE\n");
+    // printf("open use file called at path: %s\n",path);
 
     char* file_name = get_file_name_use(path);
 

@@ -30,14 +30,14 @@
 
 int imsfs_write (const char *path, const char *buf, size_t size, off_t offset, struct fuse_file_info *fi){
 
-    printf("***************************************\n");
-    printf("WRITE TO FILE\n");
+    // printf("***************************************\n");
+    // printf("WRITE TO FILE\n");
 
-    printf("path passed to imsfs_write: %s\n",path);
+    // printf("path passed to imsfs_write: %s\n",path);
 
     //Use query
     int use_query = is_use_query(path);
-    printf("Is path a use query: %d\n",use_query);
+    // printf("Is path a use query: %d\n",use_query);
     if (use_query) return imsfs_write_use(path, buf, size, offset, fi);
 
     imsfs_tree_node* cur_node = get_node(path);
@@ -45,7 +45,7 @@ int imsfs_write (const char *path, const char *buf, size_t size, off_t offset, s
     if (!cur_node) return -ENOENT;
     else if (cur_node->isfile == 0) return -EISDIR; //is a directory
 
-    printf("data length of file before write: %lu\n",cur_node->data_len);
+    // printf("data length of file before write: %lu\n",cur_node->data_len);
     
     unsigned long int data_len = cur_node->data_len;
 
@@ -62,10 +62,10 @@ int imsfs_write (const char *path, const char *buf, size_t size, off_t offset, s
     strncpy(cur_node->data + offset, buf, size);
     cur_node->data[end]='\0';
 
-    printf("data length of file after write: %lu\n",cur_node->data_len);
+    // printf("data length of file after write: %lu\n",cur_node->data_len);
     int ret_val = size;
-    printf("returning from imsfs_write with return value: %d\n",ret_val);
+    // printf("returning from imsfs_write with return value: %d\n",ret_val);
 
-    printf("***************************************\n");
+    // printf("***************************************\n");
     return size;
 }

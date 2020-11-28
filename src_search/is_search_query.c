@@ -19,7 +19,7 @@
 
 int is_search_query(const char *path){
 
-    printf("is_search_query called at path: %s\n",path);
+    // printf("is_search_query called at path: %s\n",path);
 
     int len_search = strlen(SEARCH_KEYWORD);
 
@@ -34,7 +34,7 @@ int is_search_query(const char *path){
         }
     }
 
-    printf("returning from is_search_query, return value: %d\n",ret_val);
+    // printf("returning from is_search_query, return value: %d\n",ret_val);
     return ret_val;
 }
 

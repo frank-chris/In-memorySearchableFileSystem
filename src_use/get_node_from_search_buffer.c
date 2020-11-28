@@ -12,11 +12,11 @@
 
 imsfs_tree_node* get_node_from_search_buffer(char* file){
     
-    printf("get_node_from_search_buffer called for file name: %s\n",file);
+    // printf("get_node_from_search_buffer called for file name: %s\n",file);
 
     if (!file || !search_buffer) return NULL;
     
-    printf("Total number of entries in buffer: %d\n",num_search_buffer_entries);
+    // printf("Total number of entries in buffer: %d\n",num_search_buffer_entries);
     
     for (int i=0; i<num_search_buffer_entries; i++){
 
@@ -25,7 +25,7 @@ imsfs_tree_node* get_node_from_search_buffer(char* file){
         
         if (search_buffer[i] != NULL && search_buffer[i]->isfile == 1 && strcmp(search_buffer[i]->name, file) == 0){
             
-            printf("Match found with entry %d\n", i + 1);
+            // printf("Match found with entry %d\n", i + 1);
             return search_buffer[i];
 
         }

@@ -26,7 +26,7 @@
 
 
 int remove_empty_dir(const char *path){
-    printf("Empty directory path %s\n", path);
+    // printf("Empty directory path %s\n", path);
     imsfs_tree_node *cur = get_node(path);
 
     if(!cur){
