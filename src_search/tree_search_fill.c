@@ -1,3 +1,8 @@
+/*
+A tree-wide search to fill the search buffer with the files that satisfy the search criteria
+*/
+
+
 #include <fuse.h>
 #include <stdio.h>
 #include <unistd.h>

@@ -1,3 +1,8 @@
+/*
+Extract the filename from a “USE” command
+*/
+
+
 #include <fuse.h>
 #include <stdio.h>
 #include <unistd.h>

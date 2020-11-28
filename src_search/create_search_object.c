@@ -1,3 +1,8 @@
+/*
+This object contains the data that will be used to filter out the files to our search buffer.
+For eg, it contains either the prefix, substring or both.
+*/
+
 #include <fuse.h>
 #include <stdio.h>
 #include <unistd.h>

@@ -1,3 +1,9 @@
+/*
+From the search command typed, create the search object with the prefix pointers 
+and the substring pointers pointing to the appropriate keywords
+*/
+
+
 #include <fuse.h>
 #include <stdio.h>
 #include <unistd.h>
@@ -10,12 +16,6 @@
 #include "tree.h"
 #include "search_use_query.h"
 
-// ls ./FIND/PREFIX/abc/TYPE/raghav
-
-/**
- * Returns object if the search query is valid
- * Else returns NULL
-**/
 
 imsfs_searchobj* get_search_object(const char *path){
 

@@ -1,3 +1,8 @@
+/*
+Add the given node into the search buffer that has been defined in the search directory
+*/
+
+
 #include <fuse.h>
 #include <stdio.h>
 #include <unistd.h>

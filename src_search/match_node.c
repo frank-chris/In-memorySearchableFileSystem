@@ -1,3 +1,7 @@
+/*
+Find out whether the given node matches the criteria of the search object
+*/
+
 #include <fuse.h>
 #include <stdio.h>
 #include <unistd.h>

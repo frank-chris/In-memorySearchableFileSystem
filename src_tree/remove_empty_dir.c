@@ -1,29 +1,8 @@
-#include "tree.h"
-
-// typedef struct imsfs_tree_node {
-//     bool isfile;                        
-//     char *name;                         //name of node
-//     char *path;                     //full path of node, stored as an array of directories
-//     
-//     struct imsfs_tree_node *parent;        //link to parent
-//     struct imsfs_tree_node **children;      //links to children
-//     int end_of_children;                       //number of children
-//     int mex;                                 // lowest unfilled location
-// 
-//     char *data;						//data for read and write
-//     unsigned long int data_len;
-//
-//     unsigned int permissions;        // Permissions
-// 
-// } imsfs_tree_node;
-
-/**
- * Return -2 if file exists on path, 
- * -1 if path invalid, 
- * 0 if path valid but directory not empty. 
- * 1 if path exists and directory is empty(success)
+/*
+If the node is a directory node and it has no children, the node gets removed by this function.
 */
 
+#include "tree.h"
 
 int remove_empty_dir(const char *path){
     printf("Empty directory path %s\n", path);

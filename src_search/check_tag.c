@@ -1,5 +1,5 @@
 /*
-
+Checks if the search keyword is supported or not(currently, “PREFIX” or “SUBSTR”).
 */
 
 #include <fuse.h>

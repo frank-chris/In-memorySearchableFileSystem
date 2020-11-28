@@ -1,3 +1,7 @@
+/*
+Flush out all node-entries from the search buffer, deallocate/free up it’s memory
+*/
+
 #include <fuse.h>
 #include <stdio.h>
 #include <unistd.h>

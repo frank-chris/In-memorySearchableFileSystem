@@ -1,3 +1,8 @@
+/*
+Search through the buffer to get the node referred to by the filename
+*/
+
+
 #include <fuse.h>
 #include <stdio.h>
 #include <unistd.h>

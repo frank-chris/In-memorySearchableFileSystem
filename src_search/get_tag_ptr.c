@@ -1,3 +1,8 @@
+/*
+Get the pointer for tag depending on the input string
+*/
+
+
 #include <fuse.h>
 #include <stdio.h>
 #include <unistd.h>

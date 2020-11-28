@@ -1,22 +1,9 @@
+/*
+Once a directory’s location is changed, we have to change the locations of all the nodes in the subtree 
+*/
+
+
 #include "tree.h"
-
-// typedef struct imsfs_tree_node {
-//     bool isfile;                        
-//     char *name;                         //name of node
-//     char *path;                     //full path of node, stored as an array of directories
-//     
-//     struct imsfs_tree_node *parent;        //link to parent
-//     struct imsfs_tree_node **children;      //links to children
-//     int end_of_children;                       //number of children
-//     int mex;                                 // lowest unfilled location
-// 
-//     char *data;						//data for read and write
-//     unsigned long int data_len;
-//
-//     unsigned int permissions;        // Permissions
-// 
-// } imsfs_tree_node;
-
 
 int recursive_path_update(char *parent_path, imsfs_tree_node *cur_node){
     free(cur_node -> path);

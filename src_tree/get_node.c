@@ -1,7 +1,8 @@
+/*
+Takes path string, resolves it into an existing node from the tree and returns that.
+*/
+
 #include "tree.h"
-
-// Takes path string, resolves it into an existing node from the tree and returns that. Otherwise NULL
-
 
 imsfs_tree_node *get_node(const char *path){
     // Format for path is "/directory/sub1/sub2/..."

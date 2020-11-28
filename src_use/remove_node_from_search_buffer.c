@@ -1,3 +1,7 @@
+/*
+Remove the given node from the search buffer
+*/
+
 #include <fuse.h>
 #include <stdio.h>
 #include <unistd.h>

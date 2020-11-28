@@ -1,3 +1,8 @@
+/*
+
+*/
+
+
 #include <fuse.h>
 #include <stdio.h>
 #include <unistd.h>
@@ -10,9 +15,6 @@
 #include "tree.h"
 #include "search_use_query.h"
 
-/**Supported tags
- * PREFIX
-**/
 
 void initialise_search(){
 

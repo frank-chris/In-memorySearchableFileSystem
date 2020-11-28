@@ -1,3 +1,7 @@
+/*
+Returns true if the command typed is for using the searchability feature of the file system
+*/
+
 #include <fuse.h>
 #include <stdio.h>
 #include <unistd.h>
@@ -9,13 +13,6 @@
 #include <errno.h>
 #include "tree.h"
 #include "search_use_query.h"
-
-//Search Query structure -> FIND/
-
-/**
- * 1 if search query
- * 0 if not a search query
-**/
 
 int is_search_query(const char *path){
 

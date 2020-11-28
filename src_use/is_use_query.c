@@ -1,3 +1,9 @@
+/*
+Returns true if the command typed is for making use of the search buffer, 
+that is, if the command has the following format- <command> ./USE/…
+*/
+
+
 #include <fuse.h>
 #include <stdio.h>
 #include <unistd.h>
@@ -9,13 +15,6 @@
 #include <errno.h>
 #include "tree.h"
 #include "search_use_query.h"
-
-//Search Query structure -> FIND/
-
-/**
- * 1 if search query
- * 0 if not a search query
-**/
 
 int is_use_query(const char *path){
 

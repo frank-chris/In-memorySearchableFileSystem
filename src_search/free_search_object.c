@@ -1,3 +1,7 @@
+/*
+Clears the search object and deallocates its memory.
+*/
+
 #include <fuse.h>
 #include <stdio.h>
 #include <unistd.h>
