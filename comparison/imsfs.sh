@@ -13,7 +13,7 @@ printf "command,time\n" >> $csv_path
 start_time=`date +%s%N`
 echo $start_time
 
-for ((i=1;i<=10000;i++)); 
+for ((i=1;i<=1000;i++)); 
 do 
    mkdir $i
 done
@@ -29,7 +29,7 @@ printf "mkdir,$elapsed_time\n" >> $csv_path
 start_time=`date +%s%N`
 echo $start_time
 
-for ((i=1;i<=10000;i++)); 
+for ((i=1;i<=1000;i++)); 
 do 
    touch $i/$i.txt
 done
@@ -42,7 +42,7 @@ printf "touch,$elapsed_time\n" >> $csv_path
 
 # writing data in the files
 
-for ((i=1;i<=10000;i++)); 
+for ((i=1;i<=1000;i++)); 
 do 
    printf "abcdefgh" >> $i/$i.txt
 done
@@ -52,7 +52,7 @@ done
 start_time=`date +%s%N`
 echo $start_time
 
-for ((i=1;i<=10000;i++)); 
+for ((i=1;i<=1000;i++)); 
 do 
    ls $i
 done
@@ -68,7 +68,7 @@ printf "ls,$elapsed_time\n" >> $csv_path
 start_time=`date +%s%N`
 echo $start_time
 
-for ((i=1;i<=10000;i++)); 
+for ((i=1;i<=1000;i++)); 
 do 
    stat $i/$i.txt
 done
@@ -84,7 +84,7 @@ printf "stat,$elapsed_time\n" >> $csv_path
 start_time=`date +%s%N`
 echo $start_time
 
-for ((i=1;i<=10000;i++)); 
+for ((i=1;i<=1000;i++)); 
 do 
    cp ../comparison/sample $i/sample
 done
@@ -100,7 +100,7 @@ printf "cp,$elapsed_time\n" >> $csv_path
 start_time=`date +%s%N`
 echo $start_time
 
-for ((i=1;i<=10000;i++)); 
+for ((i=1;i<=1000;i++)); 
 do 
    mv $i/sample $i/temp
 done
@@ -116,7 +116,7 @@ printf "mv,$elapsed_time\n" >> $csv_path
 start_time=`date +%s%N`
 echo $start_time
 
-for ((i=1;i<=10000;i++)); 
+for ((i=1;i<=1000;i++)); 
 do 
    cat $i/$i.txt
 done
@@ -132,7 +132,7 @@ printf "cat,$elapsed_time\n" >> $csv_path
 start_time=`date +%s%N`
 echo $start_time
 
-for ((i=1;i<=10000;i++)); 
+for ((i=1;i<=1000;i++)); 
 do 
    rm $i/*
 done
@@ -148,7 +148,7 @@ printf "rm,$elapsed_time\n" >> $csv_path
 start_time=`date +%s%N`
 echo $start_time
 
-for ((i=1;i<=10000;i++)); 
+for ((i=1;i<=1000;i++)); 
 do 
    rmdir $i
 done
