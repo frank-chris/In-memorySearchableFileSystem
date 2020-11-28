@@ -1,3 +1,8 @@
+/*
+This file contains helper functions for 
+tree related functions
+*/
+
 #ifndef IMSFS_TREE_H
 #define IMSFS_TREE_H
 
@@ -11,53 +16,66 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <errno.h>
+#include <stdbool.h>
+#include <fuse.h>
 
-// #include "disk.h"
-// #include "bitmap.h"
+#define DIR_PERM (0777) //Default permissions for directories
+#define FILE_PERM (0777) //Default permissions for files
 
-#define DEF_DIR_PERM (0775)
-#define DEF_FILE_PERM (0664)
+#define MAX_NAME_SIZE 256 //Maximum length of name of a file/directory
+#define MAX_PATH_DEPTH 20 //Maximum depth in the tree of a file/directory node
 
-// fields = type + name + len + uid + gid + perms + nlinks + data_size + atim + mtim + ctim < + data + > + inode_no + next_block
-// in bits = 8 + (256*8) + 32 + 32 + 32 + 32 + 8 + 64 + (16*8) + (16*8) + (16*8) + 64 + 64 = 2768 = 346 bytes
-#define NODE_SIZE 346
-
-#define SUPERBLOCKS 1   // number of blocks designated to be part of superblock
-
-
+//Node structure in the tree
 typedef struct imsfs_tree_node {
-    uint8_t type;                       //type of node
-    char name[256];                         //name of node
-    char *fullname;                     //full path of node
+
+    bool isfile;                        //the node is a file or directory
+    char *name;                         //name of node, file/directory
+    char *path;                         //full path of node, stored as an array of directories
     
-    uint32_t uid, gid;              // user ID and group IP
-    uint32_t perms;                 // file permissions (supposed to be similar to Ubuntu)
-    uint8_t nlinks;             // number of links to this
-    
-    struct fs_tree_node *parent;        //link to parent
-    struct fs_tree_node **children;      //links to children
-    uint32_t num_children;                       //number of children
-    uint64_t *ch_inodes;            // inode_no of children
+    struct imsfs_tree_node *parent;     //link to parent
+    struct imsfs_tree_node **children;  //links to children
+    int end_of_children;                //number of children
+    int mex;                            // lowest unfilled location
 
-    uint8_t *data;						//data for read and write
-    uint64_t data_size;						//size of data
-    uint64_t block_count;               // number of blocks
-    uint64_t inode_no;                  // the inode number, i.e, the block containing first part of data
+    char *data;						    //data for read and write
+    unsigned long int data_len;
 
-    struct timespec st_atim;            /* time of last access */
-    struct timespec st_mtim;            /* time of last modification */
-    struct timespec st_ctim;            /* time of last status change */
+    unsigned int permissions;		    // Permissions
 
-    // time_t st_atim;            /* time of last access */
-    // time_t st_mtim;            /* time of last modification */
-    // time_t st_ctim;            /* time of last status change */
+    long access_time;                   // Time of last access
+    long modification_time;             // Time of last modification
+    long change_time;                   // Time of last status change
+
 
 } imsfs_tree_node;
 
-/*
-types:
-    1 = file
-    2 = directory
-*/
+// Root of the tree
+imsfs_tree_node *root;
+
+// Initialise imsfs
+void initialise_imsfs();
+
+//Prints error messages
+void error_msg(const char *msg, const char *reason); 
+
+void print_node_data(imsfs_tree_node *node);
+imsfs_tree_node *get_node(const char *path);
+imsfs_tree_node *add_file_node(const char *parent_path, const char *name);
+imsfs_tree_node *add_dir_node(const char *parent_path, const char *name);
+char *name_from_path(const char *path);
+char *parent_from_path(const char *path);
+imsfs_tree_node *parent_node_from_path(const char *path);
+imsfs_tree_node* get_file_node(const char *path);
+imsfs_tree_node* get_dir_node(const char *path);
+int remove_file_node(const char *path);
+int remove_empty_dir(const char *path);
+int free_file_node(imsfs_tree_node *file_node);
+int free_dir_node_recursive(imsfs_tree_node *dir_node);
+int find_pos(imsfs_tree_node *child, imsfs_tree_node *parent);
+void assign_mex(imsfs_tree_node *parent_node);
+bool check_leaf(imsfs_tree_node *cur);
+int change_node_location(const char *oldpath, const char *newpath);
+int rename_node(const char *old_path, const char *new_path);
+int recursive_path_update(char *parent_path, imsfs_tree_node *cur_node);
 
 #endif
