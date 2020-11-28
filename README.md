@@ -17,6 +17,7 @@
 2. Type `make` in the terminal. A directory named **mountpoint** will be created in the main folder. This is the root-directory/mountpoint for IMSFS.
 3. Open another terminal. Navigate into the created directory called **mountpoint**. All operations done inside this directory will be stored inside the RAM itself and not get written onto the disk. Beware, all files and folders created here will be temporary, you will lose them once you clean close the filesystem.
 4. Once inside the filesystem, you can perform all of the basic Bash commands such as `ls`, `mkdir`, `cp`, `stat`, `cat`, `touch`, `mv` and many more.
+5. To exit the file system use the `Ctrl+C` combination on the terminal running the program. Then type the command `make clean` to unmount the file system, remove the mountpoint directory, and remove the executables.
 
 ## Searchability
 A special feature of this file system is that it supports both prefix and substring searchability. This functionality is exposed as a filesystem API
