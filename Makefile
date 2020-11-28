@@ -27,14 +27,17 @@ clean:
 cleanup: 
 	rm -r $(mountpoint)
 	rm imsfs
-	rm -rvf comparison/disk comparison/*.csv
+	rm -rvf comparison/disk comparison/*.csv comparison/imsfs_bin comparison/ondisk_bin
 
 compare_imsfs:
 	./comparison/imsfs.sh 
+	gcc -o comparison/imsfs_bin comparison/imsfs.c
+	./comparison/imsfs_bin
 
 compare_ondisk:
 	mkdir comparison/disk
 	./comparison/ondisk.sh
-
+	gcc -o comparison/ondisk_bin comparison/ondisk.c
+	./comparison/ondisk_bin
 
 

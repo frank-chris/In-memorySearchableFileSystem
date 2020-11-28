@@ -6,7 +6,7 @@ cd mountpoint
 
 touch $csv_path
 
-printf "command,time\n" >> $csv_path
+printf "command,time(ns)\n" >> $csv_path
 
 # mkdir
 

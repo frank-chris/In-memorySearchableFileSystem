@@ -17,7 +17,7 @@
 
 //from ffs.c for testing bug
 #define DIR_PERM (0775) 
-#define FILE_PERM (0664)
+#define FILE_PERM (0777)
 
 #define MAX_NAME_SIZE 256
 #define MAX_PATH_DEPTH 20
