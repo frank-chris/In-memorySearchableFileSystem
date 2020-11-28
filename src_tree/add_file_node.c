@@ -1,29 +1,9 @@
-#include "tree.h"
-
-// typedef struct imsfs_tree_node {
-//     bool isfile;                        
-//     char *name;                         //name of node
-//     char *path;                     //full path of node, stored as an array of directories
-//     
-//     struct imsfs_tree_node *parent;        //link to parent
-//     struct imsfs_tree_node **children;      //links to children
-//     int end_of_children;                       //number of children
-//     int mex;                                  // lowest unfilled location 
-// 
-//     char *data;						//data for read and write
-//     unsigned long int data_len;
-// 
-// } imsfs_tree_node;
-
-
 /*
-Cases:
-1. parent path invalid -> return NULL
-2. entry already exists -> return NULL
-3. successful allocation -> returns pointer to newly added file node
+Creates node for a file in the tree. Used when touch command is executed.
 */
 
-// returns NULL if parent path invalid
+
+#include "tree.h"
 
 imsfs_tree_node *add_file_node(const char *parent_path, const char *name){
     printf("call to function: ADD_FILE_NODE, parent_path: %s, child_name: %s\n",parent_path, name);

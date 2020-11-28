@@ -1,3 +1,9 @@
+/*
+Searches for file which match the metadata 
+specified in the search query
+*/
+
+
 #include <fuse.h>
 #include <stdio.h>
 #include <unistd.h>
@@ -11,9 +17,7 @@
 #include "imsfs_operations.h"
 #include "imsfs_operations_search_use.h"
 
-/** Supported search types
- * PREFIX
-*/
+
 
 int imsfs_readdir_search(const char *path, void *buffer, fuse_fill_dir_t filler, off_t offset, struct fuse_file_info *fi){
     

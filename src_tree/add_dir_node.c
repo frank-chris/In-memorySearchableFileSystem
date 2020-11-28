@@ -1,24 +1,9 @@
+/*
+Creates node for a directory in the tree. Used when mkdir command is executed.
+*/
+
 #include "tree.h"
 
-// typedef struct imsfs_tree_node {
-//     bool isfile;                        
-//     char *name;                         //name of node
-//     char *path;                     //full path of node, stored as an array of directories
-//     
-//     struct imsfs_tree_node *parent;        //link to parent
-//     struct imsfs_tree_node **children;      //links to children
-//     int end_of_children;                       //number of children
-// 
-//     char *data;						//data for read and write
-//     unsigned long int data_len;
-// 
-// } imsfs_tree_node;
-
-/* Cases
-1. parent path invalid -> return NULL
-2. entry already present -> return NULL
-3. successful -> return pointer to the new node
-*/
 
 imsfs_tree_node *add_dir_node(const char *parent_path, const char *name){
 

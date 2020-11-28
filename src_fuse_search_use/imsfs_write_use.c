@@ -1,3 +1,9 @@
+/*
+Writes to the file requested using 
+the use query
+*/
+
+
 #include <fuse.h>
 #include <stdio.h>
 #include <unistd.h>
@@ -11,22 +17,8 @@
 #include "imsfs_operations.h"
 #include "imsfs_operations_search_use.h"
 
-// typedef struct imsfs_tree_node {
-//     bool isfile;                        
-//     char *name;                         //name of node
-//     char *path;                     //full path of node, stored as an array of directories
-//     
-//     struct imsfs_tree_node *parent;        //link to parent
-//     struct imsfs_tree_node **children;      //links to children
-//     int end_of_children;                       //number of children
-//     int mex;                                 // lowest unfilled location
-// 
-//     char *data;						//data for read and write
-//     unsigned long int data_len;
-//
-//     unsigned int permissions;        // Permissions
-// 
-// } imsfs_tree_node;
+
+
 
 int imsfs_write_use (const char *path, const char *buf, size_t size, off_t offset, struct fuse_file_info *fi){
 
@@ -62,6 +54,10 @@ int imsfs_write_use (const char *path, const char *buf, size_t size, off_t offse
 
     strncpy(cur_node->data + offset, buf, size);
     cur_node->data[end]='\0';
+
+    cur_node->access_time = time(NULL);
+    cur_node->modification_time = time(NULL);
+    cur_node->change_time = time(NULL);
 
     printf("data length of file after write: %lu\n",cur_node->data_len);
     int ret_val = size;

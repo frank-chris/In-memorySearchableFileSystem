@@ -1,3 +1,8 @@
+/*
+Return the attributes of the file
+requested using use query
+*/
+
 #include <fuse.h>
 #include <stdio.h>
 #include <unistd.h>
@@ -37,7 +42,14 @@ int imsfs_getattr_use(const char *path, struct stat *s){
     s->st_nlink=1;
     s->st_size=(cur_node->data_len);
     s->st_mode= S_IFREG | cur_node->permissions;
+    
+    s->st_atim.tv_sec = cur_node->access_time;
+    s->st_mtim.tv_sec = cur_node->modification_time;
+    s->st_ctim.tv_sec = cur_node->change_time;
 
+    cur_node->access_time = time(NULL);
+    
+    
     free(file_name);
     file_name = NULL;
 

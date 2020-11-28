@@ -1,3 +1,9 @@
+/*
+Opens the file requested using 
+the use query
+*/
+
+
 #include <fuse.h>
 #include <stdio.h>
 #include <unistd.h>
@@ -27,6 +33,8 @@ int imsfs_open_use (const char *path, struct fuse_file_info *fi){
         free(file_name);    
         return -ENOENT;
     }
+
+    cur_node->access_time = time(NULL);
 
     // printf("Returning from imsfs_open with return value: %d\n",ret_val);
     

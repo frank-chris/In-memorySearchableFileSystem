@@ -1,18 +1,8 @@
-#include "tree.h"
+/*
+Takes path as argument and return the pointer to the node only if it is a directory node
+*/
 
-// typedef struct imsfs_tree_node {
-//     bool isfile;                        
-//     char *name;                         //name of node
-//     char *path;                     //full path of node, stored as an array of directories
-//     
-//     struct imsfs_tree_node *parent;        //link to parent
-//     struct imsfs_tree_node **children;      //links to children
-//     int end_of_children;                       //number of children
-// 
-//     char *data;						//data for read and write
-//     unsigned long int data_len;
-// 
-// } imsfs_tree_node;
+#include "tree.h"
 
 imsfs_tree_node *get_dir_node(const char *path){
     imsfs_tree_node *cur = get_node(path);

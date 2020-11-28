@@ -1,14 +1,10 @@
+/*
+Moves a node from one location in the file system to another. 
+If the node is a directory node, the entire subtree rooted at it is moved.
+*/
+
 #include "tree.h"
 #include "search_use_query.h"
-
-/**
- * Changes location of the node at oldpath to newpath. 
- * Return -2 if oldpath a directory, 
- * -1 if oldpath invalid, 
- * 0 if newpath invalid, 
- * 1 for success. 
- * Also, return -3 if newpath already exists but it points to a directory
-*/
 
 int change_node_location(const char *oldpath, const char *newpath){
     imsfs_tree_node *cur = get_node(oldpath);

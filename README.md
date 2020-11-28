@@ -21,7 +21,7 @@
 ## Searchability
 A special feature of this file system is that it supports both prefix and substring searchability. This functionality is exposed as a filesystem API
 1. Prefix Matching - <br>
-Type in the command `ls ./FIND/PREFIX/<prefixname>` to search all files in the entire file system that have the prefix as **prefixname**. For example, if you want to search all the files that have the prefix **_abc_**, you have to type command `ls ./FIND/PREFIX/abc`. You will get results such as **_abc.txt_**, **_abcd.py**, etc
+Type in the command `ls ./FIND/PREFIX/<prefixname>` to search all files in the entire file system that have the prefix as **prefixname**. For example, if you want to search all the files that have the prefix **_abc_**, you have to type command `ls ./FIND/PREFIX/abc`. You will get results such as **_abc.txt_**, **_abcd.py_**, etc
 2. Substring Matching - <br>
  Type in the command `ls ./FIND/SUBSTR/<substringname>` to search all files in the entire file system that have the prefix as **substringname**. For example, if you want to search all the files that have the substring **_bcd_**, you have to type command `ls ./FIND/SUBSTR/bcd`. You will get results such as **_bcd.mp4_**, **_abcd.py_**, etc.
 3. You may type a combination of the two to get more specific results, such as `ls ./FIND/PREFIX/<prefixname>/SUBSTR/<substringname>` will search the file system for names beginning with **prefixname** AND containing the **substringname**.

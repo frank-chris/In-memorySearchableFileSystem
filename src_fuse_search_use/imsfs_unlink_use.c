@@ -1,3 +1,9 @@
+/*
+Removes the file requested using 
+the use query
+*/
+
+
 #include <fuse.h>
 #include <stdio.h>
 #include <unistd.h>

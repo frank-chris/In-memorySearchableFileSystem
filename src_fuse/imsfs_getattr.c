@@ -1,5 +1,5 @@
 /*
-Return a stat structure containing file/directory attributes
+Fills a stat structure with the file/directory attributes
 */
 
 

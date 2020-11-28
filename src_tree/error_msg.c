@@ -1,3 +1,8 @@
+/*
+Helper function for error handling
+*/
+
+
 #include "tree.h"
 
 

@@ -1,3 +1,8 @@
+/*
+Exposes the directories in the search-query
+command as empty directories
+*/
+
 #include <fuse.h>
 #include <stdio.h>
 #include <unistd.h>
