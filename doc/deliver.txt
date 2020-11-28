@@ -1,0 +1,30 @@
+In this project, you will implement an in-memory filesystem using C and FUSE library. 
+The files and folders inside the filesystem lie only in the RAM and are erased when the PC shuts down. 
+This would potentially provide faster access to data in files than those which are on the hard-drive. 
+This filesystem should also have special feature where you have a special directory called /FIND 
+where you should be able to search for files based on some metadata like file type and names (id3fs does something similar).
+
+"Your FUSE-based filesystem must be able to support the following system calls/functions/linux commands/features:
+- File: open, close, read, write, lseek
+- Directory: opendir, readdir, closedir, rewinddir
+- stat, fstat
+- ls, cp, mv, rm, rmdir, mkdir, touch
+- Should be searchable as in description. 
+
+In the final submission, have demo code and scripts which show the working of all the functionality and 
+compare performance with an on-disk filesystem using some I/O intensive task."
+
+
+Todo:
+lseek
+rewinddir
+fstat
+
+Shortcomings:
+handle duplicates in search
+handle malloc errors
+rename, copy files using USE
+
+To note:
+1. after using FIND, if file removed, then sytem working
+2. after using FIND, if changes made using local path (vim), location removed from search buffer, however works if changes made using USE

@@ -1,34 +1,27 @@
-#!/bin/bash
+CC = gcc
+MOUNTPOINT = mountpoint
+DIRS = src_fuse src_tree src_fuse_search_use src_search src_use
+MAIN = ./src_fuse/imsfs_main.c
+HEADERS = -I./include/
+CCFLAGS = -Wall -D_FILE_OFFSET_BITS=64 `pkg-config fuse --libs` -DFUSE_USE_VERSION=26 -lm
+SOURCE = $(wildcard ./src_*/*.c)
+EXECUTABLE = imsfs
 
-username = raghavgoyal283
-mountpoint = mountpoint
-includepath = -I./include/
-srcprefix = ./src/
-files = $(srcprefix)imsfs_operations.c $(srcprefix)tree.c $(srcprefix)utils.c 
-compileflags = -D_FILE_OFFSET_BITS=64
-opflag = -o imsfs
-neededflag = `pkg-config fuse --libs` -DFUSE_USE_VERSION=26
+all: run_imsfs
 	
+run_imsfs: $(MOUNTPOINT) $(EXECUTABLE) 
+	@echo "Running IMSFS"
+	./$(EXECUTABLE) -f $(MOUNTPOINT)
 
-all: run 
+$(MOUNTPOINT): 
+	@echo "Making mountpoint"
+	@mkdir $(MOUNTPOINT)
 
-run: setup make_directory compile
-	./imsfs -f $(mountpoint)
-	
-# # check_mountpoint:
-# 	if [[-d "$(mountpoint)"]]; then echo "Removing existing mountpoint" rm -r "$(mountpoint)"; fi; mkdir $(mountpoint)
+$(EXECUTABLE): $(DIRS) $(MAIN) 
+	@echo "Building"
+	$(CC) -o $(EXECUTABLE) $(HEADERS) $(SOURCE) $(CCFLAGS)
 
-make_directory:
-	mkdir $(mountpoint)
-
-compile: 
-	gcc -Wall $(includepath) $(srcprefix)imsfs_main.c $(files) $(compileflags) $(opflag) $(neededflag)
-
-setup:
-	if [ -d $(mountpoint) ]; then rm -r $(mountpoint); fi
-
-cleanup:
-	fusermount -u $(mountpoint)
-	rm -r $(mountpoint)
-	rm imsfs
-
+clean:
+	-fusermount -u $(MOUNTPOINT)
+	rm -f -r $(MOUNTPOINT)
+	rm -f $(EXECUTABLE)

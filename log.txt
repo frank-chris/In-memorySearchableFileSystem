@@ -1,0 +1,623 @@
+Making mountpoint
+Building
+gcc -o imsfs -I./include/ ./src_search/tree_search_fill.c ./src_search/is_search_query.c ./src_search/free_search_object.c ./src_search/check_tag.c ./src_search/match_node.c ./src_search/get_query.c ./src_search/initialise_search.c ./src_search/get_search_object.c ./src_search/get_tag_ptr.c ./src_search/create_search_object.c ./src_use/remove_node_from_search_buffer.c ./src_use/get_node_from_search_buffer.c ./src_use/get_file_name_use.c ./src_use/add_to_search_buffer.c ./src_use/is_use_query.c ./src_use/free_search_buffer.c ./src_tree/rename_node.c ./src_tree/parent_from_path.c ./src_tree/free_file_node.c ./src_tree/free_dir_node_recursive.c ./src_tree/name_from_path.c ./src_tree/remove_empty_dir.c ./src_tree/get_node.c ./src_tree/parent_node_from_path.c ./src_tree/error_msg.c ./src_tree/print_node_data.c ./src_tree/remove_file_node.c ./src_tree/change_node_location.c ./src_tree/initialise_imsfs.c ./src_tree/get_file_node.c ./src_tree/add_dir_node.c ./src_tree/assign_mex.c ./src_tree/recursive_path_update.c ./src_tree/find_pos.c ./src_tree/get_dir_node.c ./src_tree/check_leaf.c ./src_tree/add_file_node.c ./src_fuse/imsfs_mkdir.c ./src_fuse/imsfs_utimens.c ./src_fuse/imsfs_getattr.c ./src_fuse/imsfs_mknod.c ./src_fuse/imsfs_create.c ./src_fuse/imsfs_read.c ./src_fuse/imsfs_readdir.c ./src_fuse/imsfs_flush.c ./src_fuse/imsfs_rmdir.c ./src_fuse/imsfs_open.c ./src_fuse/imsfs_write.c ./src_fuse/imsfs_write_buf.c ./src_fuse/imsfs_unlink.c ./src_fuse/imsfs_rename.c ./src_fuse/imsfs_main.c ./src_fuse_search_use/imsfs_write_use.c ./src_fuse_search_use/imsfs_unlink_use.c ./src_fuse_search_use/imsfs_readdir_search.c ./src_fuse_search_use/imsfs_getattr_use.c ./src_fuse_search_use/imsfs_read_use.c ./src_fuse_search_use/imsfs_getattr_search.c ./src_fuse_search_use/imsfs_open_use.c -Wall -D_FILE_OFFSET_BITS=64 `pkg-config fuse --libs` -DFUSE_USE_VERSION=26 -lm
+# gcc -Wall     -o imsfs `pkg-config fuse --libs` -DFUSE_USE_VERSION=26 -lm
+Running IMSFS
+./imsfs -f mountpoint
+Initialising tree
+Initialise imsfs
+Root node at location 0x55c8d8f802b0
+Initialised tree
+Initialising searchability
+Initialised searchability
+******************
+GETATTR
+getattr called at path: /.Trash
+is_search_query called at path: /.Trash
+returning from is_search_query, return value: 0
+Is path a search query: 0
+is_use_query called at path: /.Trash
+returning from is_use_query, return value: 0
+Is path a use query: 0
+path passed to get_node: /.Trash
+Node not found: Invalid path
+Path is /.Trash
+Unresolved one
+(nil)
+Get node no problem
+******************
+GETATTR
+getattr called at path: /.Trash-1000
+is_search_query called at path: /.Trash-1000
+returning from is_search_query, return value: 0
+Is path a search query: 0
+is_use_query called at path: /.Trash-1000
+returning from is_use_query, return value: 0
+Is path a use query: 0
+path passed to get_node: /.Trash-1000
+Node not found: Invalid path
+Path is /.Trash-1000
+Unresolved one
+(nil)
+Get node no problem
+******************
+GETATTR
+getattr called at path: /.xdg-volume-info
+is_search_query called at path: /.xdg-volume-info
+returning from is_search_query, return value: 0
+Is path a search query: 0
+is_use_query called at path: /.xdg-volume-info
+returning from is_use_query, return value: 0
+Is path a use query: 0
+path passed to get_node: /.xdg-volume-info
+Node not found: Invalid path
+Path is /.xdg-volume-info
+Unresolved one
+(nil)
+Get node no problem
+******************
+GETATTR
+getattr called at path: /
+is_search_query called at path: /
+returning from is_search_query, return value: 0
+Is path a search query: 0
+is_use_query called at path: /
+returning from is_use_query, return value: 0
+Is path a use query: 0
+path passed to get_node: /
+0x55c8d8f802b0
+Get node no problem
+Returning from getattr
+******************
+******************
+GETATTR
+getattr called at path: /autorun.inf
+is_search_query called at path: /autorun.inf
+returning from is_search_query, return value: 0
+Is path a search query: 0
+is_use_query called at path: /autorun.inf
+returning from is_use_query, return value: 0
+Is path a use query: 0
+path passed to get_node: /autorun.inf
+Node not found: Invalid path
+Path is /autorun.inf
+Unresolved one
+(nil)
+Get node no problem
+READ DIRECTORY
+imsfs_readdir called at path: /
+is_search_query called at path: /
+returning from is_search_query, return value: 0
+path passed to get_node: /
+******************
+GETATTR
+getattr called at path: /
+is_search_query called at path: /
+returning from is_search_query, return value: 0
+Is path a search query: 0
+is_use_query called at path: /
+returning from is_use_query, return value: 0
+Is path a use query: 0
+path passed to get_node: /
+0x55c8d8f802b0
+Get node no problem
+Returning from getattr
+******************
+READ DIRECTORY
+imsfs_readdir called at path: /
+is_search_query called at path: /
+returning from is_search_query, return value: 0
+path passed to get_node: /
+******************
+GETATTR
+getattr called at path: /
+is_search_query called at path: /
+returning from is_search_query, return value: 0
+Is path a search query: 0
+is_use_query called at path: /
+returning from is_use_query, return value: 0
+Is path a use query: 0
+path passed to get_node: /
+0x55c8d8f802b0
+Get node no problem
+Returning from getattr
+******************
+READ DIRECTORY
+imsfs_readdir called at path: /
+is_search_query called at path: /
+returning from is_search_query, return value: 0
+path passed to get_node: /
+******************
+GETATTR
+getattr called at path: /
+is_search_query called at path: /
+returning from is_search_query, return value: 0
+Is path a search query: 0
+is_use_query called at path: /
+returning from is_use_query, return value: 0
+Is path a use query: 0
+path passed to get_node: /
+0x55c8d8f802b0
+Get node no problem
+Returning from getattr
+******************
+READ DIRECTORY
+imsfs_readdir called at path: /
+is_search_query called at path: /
+returning from is_search_query, return value: 0
+path passed to get_node: /
+******************
+GETATTR
+getattr called at path: /
+is_search_query called at path: /
+returning from is_search_query, return value: 0
+Is path a search query: 0
+is_use_query called at path: /
+returning from is_use_query, return value: 0
+Is path a use query: 0
+path passed to get_node: /
+0x55c8d8f802b0
+Get node no problem
+Returning from getattr
+******************
+READ DIRECTORY
+imsfs_readdir called at path: /
+is_search_query called at path: /
+returning from is_search_query, return value: 0
+path passed to get_node: /
+******************
+GETATTR
+getattr called at path: /
+is_search_query called at path: /
+returning from is_search_query, return value: 0
+Is path a search query: 0
+is_use_query called at path: /
+returning from is_use_query, return value: 0
+Is path a use query: 0
+path passed to get_node: /
+0x55c8d8f802b0
+Get node no problem
+Returning from getattr
+******************
+READ DIRECTORY
+imsfs_readdir called at path: /
+is_search_query called at path: /
+returning from is_search_query, return value: 0
+path passed to get_node: /
+******************
+GETATTR
+getattr called at path: /
+is_search_query called at path: /
+returning from is_search_query, return value: 0
+Is path a search query: 0
+is_use_query called at path: /
+returning from is_use_query, return value: 0
+Is path a use query: 0
+path passed to get_node: /
+0x55c8d8f802b0
+Get node no problem
+Returning from getattr
+******************
+READ DIRECTORY
+imsfs_readdir called at path: /
+is_search_query called at path: /
+returning from is_search_query, return value: 0
+path passed to get_node: /
+******************
+GETATTR
+getattr called at path: /
+is_search_query called at path: /
+returning from is_search_query, return value: 0
+Is path a search query: 0
+is_use_query called at path: /
+returning from is_use_query, return value: 0
+Is path a use query: 0
+path passed to get_node: /
+0x55c8d8f802b0
+Get node no problem
+Returning from getattr
+******************
+READ DIRECTORY
+imsfs_readdir called at path: /
+is_search_query called at path: /
+returning from is_search_query, return value: 0
+path passed to get_node: /
+******************
+GETATTR
+getattr called at path: /
+is_search_query called at path: /
+returning from is_search_query, return value: 0
+Is path a search query: 0
+is_use_query called at path: /
+returning from is_use_query, return value: 0
+Is path a use query: 0
+path passed to get_node: /
+0x55c8d8f802b0
+Get node no problem
+Returning from getattr
+******************
+READ DIRECTORY
+imsfs_readdir called at path: /
+is_search_query called at path: /
+returning from is_search_query, return value: 0
+path passed to get_node: /
+******************
+GETATTR
+getattr called at path: /
+is_search_query called at path: /
+returning from is_search_query, return value: 0
+Is path a search query: 0
+is_use_query called at path: /
+returning from is_use_query, return value: 0
+Is path a use query: 0
+path passed to get_node: /
+0x55c8d8f802b0
+Get node no problem
+Returning from getattr
+******************
+READ DIRECTORY
+imsfs_readdir called at path: /
+is_search_query called at path: /
+returning from is_search_query, return value: 0
+path passed to get_node: /
+******************
+GETATTR
+getattr called at path: /
+is_search_query called at path: /
+returning from is_search_query, return value: 0
+Is path a search query: 0
+is_use_query called at path: /
+returning from is_use_query, return value: 0
+Is path a use query: 0
+path passed to get_node: /
+0x55c8d8f802b0
+Get node no problem
+Returning from getattr
+******************
+READ DIRECTORY
+imsfs_readdir called at path: /
+is_search_query called at path: /
+returning from is_search_query, return value: 0
+path passed to get_node: /
+******************
+GETATTR
+getattr called at path: /
+is_search_query called at path: /
+returning from is_search_query, return value: 0
+Is path a search query: 0
+is_use_query called at path: /
+returning from is_use_query, return value: 0
+Is path a use query: 0
+path passed to get_node: /
+0x55c8d8f802b0
+Get node no problem
+Returning from getattr
+******************
+READ DIRECTORY
+imsfs_readdir called at path: /
+is_search_query called at path: /
+returning from is_search_query, return value: 0
+path passed to get_node: /
+******************
+GETATTR
+getattr called at path: /
+is_search_query called at path: /
+returning from is_search_query, return value: 0
+Is path a search query: 0
+is_use_query called at path: /
+returning from is_use_query, return value: 0
+Is path a use query: 0
+path passed to get_node: /
+0x55c8d8f802b0
+Get node no problem
+Returning from getattr
+******************
+******************
+GETATTR
+getattr called at path: /
+is_search_query called at path: /
+returning from is_search_query, return value: 0
+Is path a search query: 0
+is_use_query called at path: /
+returning from is_use_query, return value: 0
+Is path a use query: 0
+path passed to get_node: /
+0x55c8d8f802b0
+Get node no problem
+Returning from getattr
+******************
+READ DIRECTORY
+imsfs_readdir called at path: /
+is_search_query called at path: /
+returning from is_search_query, return value: 0
+path passed to get_node: /
+******************
+GETATTR
+getattr called at path: /
+is_search_query called at path: /
+returning from is_search_query, return value: 0
+Is path a search query: 0
+is_use_query called at path: /
+returning from is_use_query, return value: 0
+Is path a use query: 0
+path passed to get_node: /
+0x55c8d8f802b0
+Get node no problem
+Returning from getattr
+******************
+READ DIRECTORY
+imsfs_readdir called at path: /
+is_search_query called at path: /
+returning from is_search_query, return value: 0
+path passed to get_node: /
+******************
+GETATTR
+getattr called at path: /
+is_search_query called at path: /
+returning from is_search_query, return value: 0
+Is path a search query: 0
+is_use_query called at path: /
+returning from is_use_query, return value: 0
+Is path a use query: 0
+path passed to get_node: /
+0x55c8d8f802b0
+Get node no problem
+Returning from getattr
+******************
+READ DIRECTORY
+imsfs_readdir called at path: /
+is_search_query called at path: /
+returning from is_search_query, return value: 0
+path passed to get_node: /
+******************
+GETATTR
+getattr called at path: /
+is_search_query called at path: /
+returning from is_search_query, return value: 0
+Is path a search query: 0
+is_use_query called at path: /
+returning from is_use_query, return value: 0
+Is path a use query: 0
+path passed to get_node: /
+0x55c8d8f802b0
+Get node no problem
+Returning from getattr
+******************
+READ DIRECTORY
+imsfs_readdir called at path: /
+is_search_query called at path: /
+returning from is_search_query, return value: 0
+path passed to get_node: /
+******************
+GETATTR
+getattr called at path: /
+is_search_query called at path: /
+returning from is_search_query, return value: 0
+Is path a search query: 0
+is_use_query called at path: /
+returning from is_use_query, return value: 0
+Is path a use query: 0
+path passed to get_node: /
+0x55c8d8f802b0
+Get node no problem
+Returning from getattr
+******************
+READ DIRECTORY
+imsfs_readdir called at path: /
+is_search_query called at path: /
+returning from is_search_query, return value: 0
+path passed to get_node: /
+******************
+GETATTR
+getattr called at path: /
+is_search_query called at path: /
+returning from is_search_query, return value: 0
+Is path a search query: 0
+is_use_query called at path: /
+returning from is_use_query, return value: 0
+Is path a use query: 0
+path passed to get_node: /
+0x55c8d8f802b0
+Get node no problem
+Returning from getattr
+******************
+READ DIRECTORY
+imsfs_readdir called at path: /
+is_search_query called at path: /
+returning from is_search_query, return value: 0
+path passed to get_node: /
+******************
+GETATTR
+getattr called at path: /
+is_search_query called at path: /
+returning from is_search_query, return value: 0
+Is path a search query: 0
+is_use_query called at path: /
+returning from is_use_query, return value: 0
+Is path a use query: 0
+path passed to get_node: /
+0x55c8d8f802b0
+Get node no problem
+Returning from getattr
+******************
+READ DIRECTORY
+imsfs_readdir called at path: /
+is_search_query called at path: /
+returning from is_search_query, return value: 0
+path passed to get_node: /
+******************
+GETATTR
+getattr called at path: /
+is_search_query called at path: /
+returning from is_search_query, return value: 0
+Is path a search query: 0
+is_use_query called at path: /
+returning from is_use_query, return value: 0
+Is path a use query: 0
+path passed to get_node: /
+0x55c8d8f802b0
+Get node no problem
+Returning from getattr
+******************
+******************
+GETATTR
+getattr called at path: /
+is_search_query called at path: /
+returning from is_search_query, return value: 0
+Is path a search query: 0
+is_use_query called at path: /
+returning from is_use_query, return value: 0
+Is path a use query: 0
+path passed to get_node: /
+0x55c8d8f802b0
+Get node no problem
+Returning from getattr
+******************
+READ DIRECTORY
+imsfs_readdir called at path: /
+is_search_query called at path: /
+returning from is_search_query, return value: 0
+path passed to get_node: /
+******************
+GETATTR
+getattr called at path: /
+is_search_query called at path: /
+returning from is_search_query, return value: 0
+Is path a search query: 0
+is_use_query called at path: /
+returning from is_use_query, return value: 0
+Is path a use query: 0
+path passed to get_node: /
+0x55c8d8f802b0
+Get node no problem
+Returning from getattr
+******************
+READ DIRECTORY
+imsfs_readdir called at path: /
+is_search_query called at path: /
+returning from is_search_query, return value: 0
+path passed to get_node: /
+******************
+GETATTR
+getattr called at path: /
+is_search_query called at path: /
+returning from is_search_query, return value: 0
+Is path a search query: 0
+is_use_query called at path: /
+returning from is_use_query, return value: 0
+Is path a use query: 0
+path passed to get_node: /
+0x55c8d8f802b0
+Get node no problem
+Returning from getattr
+******************
+READ DIRECTORY
+imsfs_readdir called at path: /
+is_search_query called at path: /
+returning from is_search_query, return value: 0
+path passed to get_node: /
+******************
+GETATTR
+getattr called at path: /
+is_search_query called at path: /
+returning from is_search_query, return value: 0
+Is path a search query: 0
+is_use_query called at path: /
+returning from is_use_query, return value: 0
+Is path a use query: 0
+path passed to get_node: /
+0x55c8d8f802b0
+Get node no problem
+Returning from getattr
+******************
+READ DIRECTORY
+imsfs_readdir called at path: /
+is_search_query called at path: /
+returning from is_search_query, return value: 0
+path passed to get_node: /
+******************
+GETATTR
+getattr called at path: /
+is_search_query called at path: /
+returning from is_search_query, return value: 0
+Is path a search query: 0
+is_use_query called at path: /
+returning from is_use_query, return value: 0
+Is path a use query: 0
+path passed to get_node: /
+0x55c8d8f802b0
+Get node no problem
+Returning from getattr
+******************
+READ DIRECTORY
+imsfs_readdir called at path: /
+is_search_query called at path: /
+returning from is_search_query, return value: 0
+path passed to get_node: /
+******************
+GETATTR
+getattr called at path: /
+is_search_query called at path: /
+returning from is_search_query, return value: 0
+Is path a search query: 0
+is_use_query called at path: /
+returning from is_use_query, return value: 0
+Is path a use query: 0
+path passed to get_node: /
+0x55c8d8f802b0
+Get node no problem
+Returning from getattr
+******************
+READ DIRECTORY
+imsfs_readdir called at path: /
+is_search_query called at path: /
+returning from is_search_query, return value: 0
+path passed to get_node: /
+******************
+GETATTR
+getattr called at path: /
+is_search_query called at path: /
+returning from is_search_query, return value: 0
+Is path a search query: 0
+is_use_query called at path: /
+returning from is_use_query, return value: 0
+Is path a use query: 0
+path passed to get_node: /
+0x55c8d8f802b0
+Get node no problem
+Returning from getattr
+******************
+READ DIRECTORY
+imsfs_readdir called at path: /
+is_search_query called at path: /
+returning from is_search_query, return value: 0
+path passed to get_node: /
+******************
+GETATTR
+getattr called at path: /autorun.inf
+is_search_query called at path: /autorun.inf
+returning from is_search_query, return value: 0
+Is path a search query: 0
+is_use_query called at path: /autorun.inf
+returning from is_use_query, return value: 0
+Is path a use query: 0
+path passed to get_node: /autorun.inf
+Node not found: Invalid path
+Path is /autorun.inf
+Unresolved one
+(nil)
+Get node no problem
+******************
+GETATTR
+getattr called at path: /
+is_search_query called at path: /
+returning from is_search_query, return value: 0
+Is path a search query: 0
+is_use_query called at path: /
+returning from is_use_query, return value: 0
+Is path a use query: 0
+path passed to get_node: /
+0x55c8d8f802b0
+Get node no problem
+Returning from getattr
+******************
