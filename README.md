@@ -35,7 +35,7 @@ Comparison between IMSFS and an on-disk filesystem. The benchmarking tool Bonnie
 ![plot](https://frank-chris.github.io/my-website/plot.png)
 
 **Note regarding measurements**    
-We conducted the benchmarking on a Acer Aspire 5 machine with 1.6GHz(with Turbo Boost upto 3.4GHz) Intel i5 8 CPU. The RAM was 8GB DDR4. The operating system was Ubuntu 20.4, with patches as of November 20, 2020. The OS was installed a few days before measurement and all measurements were done immediately after rebooting and preventing unnecessary processes from running in the background. The on-disk file system was ext4 and had 256GB of space on the partition.
+We conducted the benchmarking on an Acer Aspire 5 machine with 1.6GHz(with Turbo Boost upto 3.4GHz) Intel i5 8 CPU. The RAM was 8GB DDR4. The operating system was Ubuntu 20.4, with patches as of November 20, 2020. The OS was installed a few days before measurement and all measurements were done immediately after rebooting and preventing unnecessary processes from running in the background. The on-disk file system was ext4 and had 256GB of space on the partition.
 
 
 ## Note
