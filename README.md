@@ -27,6 +27,12 @@ Type in the command `ls ./FIND/PREFIX/<prefixname>` to search all files in the e
  Type in the command `ls ./FIND/SUBSTR/<substringname>` to search all files in the entire file system that have the prefix as **substringname**. For example, if you want to search all the files that have the substring **_bcd_**, you have to type command `ls ./FIND/SUBSTR/bcd`. You will get results such as **_bcd.mp4_**, **_abcd.py_**, etc.
 3. You may type a combination of the two to get more specific results, such as `ls ./FIND/PREFIX/<prefixname>/SUBSTR/<substringname>` will search the file system for names beginning with **prefixname** AND containing the **substringname**.
 
+
+## Searchability
+
+[data](/images/data.png)
+[plot](/images/plot.png)
+
 ## Note
 * All the directories in this repository have separate READMES which provide information about the functions implemented in the .c files in that directory.
 * The source files are well commented as well
