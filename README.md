@@ -30,8 +30,8 @@ Type in the command `ls ./FIND/PREFIX/<prefixname>` to search all files in the e
 
 ## Searchability
 
-[data](/images/data.png)
-[plot](/images/plot.png)
+![data](/images/data.png)
+![plot](/images/plot.png)
 
 ## Note
 * All the directories in this repository have separate READMES which provide information about the functions implemented in the .c files in that directory.
