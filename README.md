@@ -28,10 +28,11 @@ Type in the command `ls ./FIND/PREFIX/<prefixname>` to search all files in the e
 3. You may type a combination of the two to get more specific results, such as `ls ./FIND/PREFIX/<prefixname>/SUBSTR/<substringname>` will search the file system for names beginning with **prefixname** AND containing the **substringname**.
 
 
-## Searchability
+## Benchmarking
+Comparison between IMSFS and an on-disk filesystem. The benchmarking tool Bonnie++ was used for this and we used a file size of 6GB. We allowed the on-disk filesystem(ext4) to use 1GB of RAM while IMSFS was allowed 7GB of RAM. 
 
-![data](/images/data.png)
-![plot](/images/plot.png)
+![data](https://frank-chris.github.io/my-website/data.png)
+![plot](https://frank-chris.github.io/my-website/plot.png)
 
 ## Note
 * All the directories in this repository have separate READMES which provide information about the functions implemented in the .c files in that directory.
