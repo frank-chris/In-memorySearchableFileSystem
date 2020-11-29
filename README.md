@@ -28,7 +28,7 @@ Type in the command `ls ./FIND/PREFIX/<prefixname>` to search all files in the e
 3. You may type a combination of the two to get more specific results, such as `ls ./FIND/PREFIX/<prefixname>/SUBSTR/<substringname>` will search the file system for names beginning with **prefixname** AND containing the **substringname**.
 
 ## Note
-* All the directories in this repository have separate READMES which provide information about the 
+* All the directories in this repository have separate READMES which provide information about the functions implemented in the .c files in that directory.
 * The source files are well commented as well
 * Link to presentation: [Presentation](https://docs.google.com/presentation/d/1e-mg9RtKudUxI7enxK1pMCTCyFjADkYlf7XBl0A94Uk/edit?usp=sharing) 
 
